@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "vizito-team-business-cards/card",
+	"title": "Team Card",
+	"category": "widgets",
+	"icon": "id",
+	"description": "One person's business card from Vizito Team Business Cards.",
+	"keywords": [ "business card", "vcard", "team", "contact" ],
+	"textdomain": "vizito-team-business-cards",
+	"attributes": {
+		"cardId": { "type": "number", "default": 0 },
+		"lang": { "type": "string", "default": "" },
+		"inactive": { "type": "string", "enum": [ "hide", "notice" ], "default": "hide" }
+	},
+	"supports": { "html": false, "align": [ "wide" ] },
+	"editorScript": "tbc-block-editor"
+}

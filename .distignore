@@ -1,0 +1,34 @@
+# What does not go into a built copy of this plugin (read by `wp dist-archive`
+# and by the WordPress.org deploy action through `rsync --exclude-from`).
+# Names that also exist deeper in the tree are anchored with a leading slash:
+# lib/qrcode/README.md and lib/qrcode/LICENSE record where the bundled QR
+# library comes from and must ship.
+
+# Development.
+/docs
+/tests
+/tools
+
+# Repository files.
+/README.md
+/.distignore
+/.gitattributes
+/.gitignore
+/.git
+/.github
+
+# Build tooling, none of which exists; kept out if it ever arrives.
+/composer.json
+/composer.lock
+/package.json
+/package-lock.json
+/phpcs.xml
+/phpcs.xml.dist
+/node_modules
+/vendor
+
+# Debris.
+*.zip
+*.bak
+.DS_Store
+Thumbs.db

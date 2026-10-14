@@ -1,0 +1,542 @@
+# German translation of Vizito Team Business Cards.
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Vizito Team Business Cards\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: vizito-team-business-cards\n"
+
+msgid "Card details"
+msgstr "Kartendaten"
+
+msgid "Person"
+msgstr "Person"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "Website and social profiles"
+msgstr "Website und soziale Profile"
+
+msgid "Extra buttons"
+msgstr "Zusätzliche Schaltflächen"
+
+msgid "Fields left empty use the company profile where a grey hint is shown."
+msgstr "Leere Felder mit grauem Hinweis übernehmen den Wert aus dem Firmenprofil."
+
+msgid "Role and texts, per language"
+msgstr "Position und Texte je Sprache"
+
+msgid "Import / Export"
+msgstr "Import / Export"
+
+msgid "Sorry, you are not allowed to import cards."
+msgstr "Sie dürfen keine Karten importieren."
+
+msgid "%d card imported."
+msgid_plural "%d cards imported."
+msgstr[0] "%d Karte importiert."
+msgstr[1] "%d Karten importiert."
+
+msgid "Upload a .csv or .txt file of at most 2 MB."
+msgstr "Laden Sie eine .csv- oder .txt-Datei mit höchstens 2 MB hoch."
+
+msgid "Paste the rows or choose a file (at most 2 MB)."
+msgstr "Fügen Sie Zeilen ein oder wählen Sie eine Datei (höchstens 2 MB)."
+
+msgid "The preview has expired. Start the import again."
+msgstr "Die Vorschau ist abgelaufen. Starten Sie den Import erneut."
+
+msgid "Import"
+msgstr "Importieren"
+
+msgid "Columns are the ones in an exported file. Rows match existing cards by email, then by slug. An empty cell leaves a field as it is; a single dash clears it."
+msgstr "Die Spalten entsprechen einer exportierten Datei. Zeilen werden per E-Mail, dann per Slug bestehenden Karten zugeordnet. Eine leere Zelle lässt ein Feld unverändert; ein einzelner Bindestrich leert es."
+
+msgid "CSV file"
+msgstr "CSV-Datei"
+
+msgid "Or paste rows from a spreadsheet"
+msgstr "Oder Zeilen aus einer Tabelle einfügen"
+
+msgid "Preview"
+msgstr "Vorschau"
+
+msgid "Export"
+msgstr "Export"
+
+msgid "Download all cards as CSV"
+msgstr "Alle Karten als CSV herunterladen"
+
+msgid "Create"
+msgstr "Anlegen"
+
+msgid "Update"
+msgstr "Aktualisieren"
+
+msgid "Error"
+msgstr "Fehler"
+
+msgid "%1$d to create, %2$d to update, %3$d with errors. Nothing has been written yet."
+msgstr "Anzulegen: %1$d, zu aktualisieren: %2$d, mit Fehlern: %3$d. Noch wurde nichts gespeichert."
+
+msgid "Rows with errors are skipped. Fix them in the file and import again, or import the rest now."
+msgstr "Fehlerhafte Zeilen werden übersprungen. Korrigieren Sie sie in der Datei und importieren Sie erneut, oder importieren Sie jetzt den Rest."
+
+msgid "Line"
+msgstr "Zeile"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Notes"
+msgstr "Hinweise"
+
+msgid "Start over"
+msgstr "Neu beginnen"
+
+msgid "QR code"
+msgstr "QR-Code"
+
+msgid "Print codes"
+msgstr "Codes drucken"
+
+msgid "Publish the card to get its QR code. The code holds the card's final address."
+msgstr "Veröffentlichen Sie die Karte, um ihren QR-Code zu erhalten. Der Code enthält die endgültige Adresse der Karte."
+
+msgid "logo"
+msgstr "Logo"
+
+msgid "Give the printer the SVG. Print one proof and scan it from paper before the full run."
+msgstr "Geben Sie der Druckerei die SVG-Datei. Drucken Sie vor der Auflage einen Probedruck und scannen Sie ihn vom Papier."
+
+msgid "Sorry, you are not allowed to export codes."
+msgstr "Sie dürfen keine Codes exportieren."
+
+msgid "No published cards yet."
+msgstr "Noch keine veröffentlichten Karten."
+
+msgid "Download ZIP"
+msgstr "ZIP herunterladen"
+
+msgid "Open test sheet"
+msgstr "Testbogen öffnen"
+
+msgid "This link has expired. Reload the card and try again."
+msgstr "Dieser Link ist abgelaufen. Laden Sie die Karte neu und versuchen Sie es erneut."
+
+msgid "Nothing to download."
+msgstr "Nichts zum Herunterladen."
+
+msgid "Select at least one card."
+msgstr "Wählen Sie mindestens eine Karte."
+
+msgid "This server cannot build ZIP files (the PHP zip extension is missing). Download the codes one by one from each card."
+msgstr "Dieser Server kann keine ZIP-Dateien erstellen (die PHP-Erweiterung zip fehlt). Laden Sie die Codes einzeln bei jeder Karte herunter."
+
+msgid "The ZIP file could not be created in the server's temporary folder. Download the codes one by one from each card."
+msgstr "Die ZIP-Datei konnte im temporären Ordner des Servers nicht angelegt werden. Laden Sie die Codes einzeln bei jeder Karte herunter."
+
+msgid "QR test sheet"
+msgstr "QR-Testbogen"
+
+msgid "Company profile"
+msgstr "Firmenprofil"
+
+msgid "Team Cards settings"
+msgstr "Einstellungen für Teamkarten"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Cards use these values wherever their own field is left empty."
+msgstr "Karten verwenden diese Werte überall dort, wo ihr eigenes Feld leer ist."
+
+msgid "Select logo"
+msgstr "Logo auswählen"
+
+msgid "Languages and address"
+msgstr "Sprachen und Adresse"
+
+msgid "Languages"
+msgstr "Sprachen"
+
+msgid "One per line: a language code and, optionally, a WordPress locale. Example: \"de de_DE\". The order is the order of the language switcher."
+msgstr "Einer pro Zeile: ein Sprachcode und optional eine WordPress-Locale, z. B. „de de_DE“. Die Reihenfolge ist die des Sprachumschalters."
+
+msgid "Default language"
+msgstr "Standardsprache"
+
+msgid "Browser language"
+msgstr "Browsersprache"
+
+msgid "Open a scanned card in the visitor's browser language when it is on the list."
+msgstr "Eine gescannte Karte in der Browsersprache des Besuchers öffnen, wenn sie in der Liste steht."
+
+msgid "Card address"
+msgstr "Kartenadresse"
+
+msgid "Printed QR codes contain this address. Changing it breaks every code already printed."
+msgstr "Gedruckte QR-Codes enthalten diese Adresse. Eine Änderung macht alle bereits gedruckten Codes unbrauchbar."
+
+msgid "Appearance"
+msgstr "Darstellung"
+
+msgid "Accent colour"
+msgstr "Akzentfarbe"
+
+msgid "Colour scheme"
+msgstr "Farbschema"
+
+msgid "Follow the visitor's device"
+msgstr "Wie das Gerät des Besuchers"
+
+msgid "Light"
+msgstr "Hell"
+
+msgid "Dark"
+msgstr "Dunkel"
+
+msgid "Photo shape"
+msgstr "Fotoform"
+
+msgid "Round"
+msgstr "Rund"
+
+msgid "Square"
+msgstr "Quadratisch"
+
+msgid "Photo in contact file"
+msgstr "Foto in der Kontaktdatei"
+
+msgid "Include the photo in the downloaded contact, so it shows in the phone's address book."
+msgstr "Das Foto in den heruntergeladenen Kontakt aufnehmen, damit es im Adressbuch des Telefons erscheint."
+
+msgid "QR codes"
+msgstr "QR-Codes"
+
+msgid "Module colour"
+msgstr "Modulfarbe"
+
+msgid "Background colour"
+msgstr "Hintergrundfarbe"
+
+msgid "Keep modules dark on a light background. Pairs that would not scan reliably are refused."
+msgstr "Module dunkel auf hellem Hintergrund halten. Farbpaare, die sich nicht zuverlässig scannen lassen, werden abgelehnt."
+
+msgid "Logo in the code"
+msgstr "Logo im Code"
+
+msgid "Put the company logo in the middle of printed codes. Codes then use the highest error correction; test a paper proof before printing."
+msgstr "Das Firmenlogo in die Mitte gedruckter Codes setzen. Die Codes nutzen dann die höchste Fehlerkorrektur; testen Sie vor dem Druck einen Probedruck."
+
+msgid "Data"
+msgstr "Daten"
+
+msgid "Keep statistics for"
+msgstr "Statistiken aufbewahren für"
+
+msgid "days (0 = keep)"
+msgstr "Tage (0 = unbegrenzt)"
+
+msgid "Uninstall"
+msgstr "Deinstallation"
+
+msgid "Delete all cards, settings and statistics when the plugin is deleted."
+msgstr "Beim Löschen des Plugins alle Karten, Einstellungen und Statistiken löschen."
+
+msgid "The card address changed. QR codes already printed still point to %s and will stop working."
+msgstr "Die Kartenadresse wurde geändert. Bereits gedruckte QR-Codes zeigen weiterhin auf %s und funktionieren nicht mehr."
+
+msgid "Sorry, you are not allowed to manage these settings."
+msgstr "Sie dürfen diese Einstellungen nicht ändern."
+
+msgid "Business cards"
+msgstr "Visitenkarten"
+
+msgid "Business card"
+msgstr "Visitenkarte"
+
+msgid "Add business card"
+msgstr "Visitenkarte hinzufügen"
+
+msgid "Edit business card"
+msgstr "Visitenkarte bearbeiten"
+
+msgid "All cards"
+msgstr "Alle Karten"
+
+msgid "Team Cards"
+msgstr "Teamkarten"
+
+msgid "First name"
+msgstr "Vorname"
+
+msgid "Last name"
+msgstr "Nachname"
+
+msgid "Job title"
+msgstr "Position"
+
+msgid "Intro"
+msgstr "Einleitung"
+
+msgid "Mobile phone"
+msgstr "Mobiltelefon"
+
+msgid "Landline"
+msgstr "Festnetz"
+
+msgid "Email"
+msgstr "E-Mail"
+
+msgid "WhatsApp number"
+msgstr "WhatsApp-Nummer"
+
+msgid "Street and number"
+msgstr "Straße und Hausnummer"
+
+msgid "Postcode"
+msgstr "Postleitzahl"
+
+msgid "City"
+msgstr "Ort"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Map link"
+msgstr "Kartenlink"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Button %d label"
+msgstr "Schaltfläche %d – Beschriftung"
+
+msgid "Button %d link"
+msgstr "Schaltfläche %d – Link"
+
+msgid "The accent colour is light: white text on it is hard to read. A darker shade works better for people with low vision."
+msgstr "Die Akzentfarbe ist hell: weißer Text darauf ist schwer lesbar. Ein dunklerer Ton ist für Menschen mit Sehschwäche besser."
+
+msgid "Company name"
+msgstr "Firmenname"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Column \"%s\" is not known and was ignored."
+msgstr "Die Spalte „%s“ ist unbekannt und wurde ignoriert."
+
+msgid "Only the first %d rows are imported at once."
+msgstr "Es werden jeweils nur die ersten %d Zeilen importiert."
+
+msgid "The row has %1$d cells but the header has %2$d."
+msgstr "Die Zeile hat %1$d Zellen, die Kopfzeile aber %2$d."
+
+msgid "%1$s \"%2$s\" is not valid."
+msgstr "%1$s „%2$s“ ist ungültig."
+
+msgid "Photo \"%s\" is not in the Media Library."
+msgstr "Das Foto „%s“ ist nicht in der Mediathek."
+
+msgid "Status \"%s\" must be \"active\" or \"inactive\"."
+msgstr "Der Status „%s“ muss „active“ oder „inactive“ sein."
+
+msgid "A new card needs a first or last name."
+msgstr "Eine neue Karte braucht einen Vor- oder Nachnamen."
+
+msgid "Team Card"
+msgstr "Teamkarte"
+
+msgid "Card"
+msgstr "Karte"
+
+msgid "Choose a card"
+msgstr "Karte wählen"
+
+msgid "Language"
+msgstr "Sprache"
+
+msgid "Page language"
+msgstr "Sprache der Seite"
+
+msgid "If the person has left"
+msgstr "Wenn die Person ausgeschieden ist"
+
+msgid "Show nothing"
+msgstr "Nichts anzeigen"
+
+msgid "Show company details"
+msgstr "Firmendaten anzeigen"
+
+msgid "Choose a card in the element settings."
+msgstr "Wählen Sie in den Elementeinstellungen eine Karte."
+
+msgid "Vizito Team Business Cards: card not found."
+msgstr "Vizito Team Business Cards: Karte nicht gefunden."
+
+msgid "Link copied"
+msgstr "Link kopiert"
+
+msgid "This business card is no longer active. You can still reach the company:"
+msgstr "Diese Visitenkarte ist nicht mehr aktiv. Das Unternehmen erreichen Sie weiterhin:"
+
+msgid "Save contact"
+msgstr "Kontakt speichern"
+
+msgid "Call"
+msgstr "Anrufen"
+
+msgid "Directions"
+msgstr "Route"
+
+msgid "Share"
+msgstr "Teilen"
+
+msgid "(opens in a new tab)"
+msgstr "(öffnet in einem neuen Tab)"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "This person no longer works here"
+msgstr "Diese Person arbeitet nicht mehr hier"
+
+msgid "Then the card address"
+msgstr "Dann soll die Kartenadresse"
+
+msgid "shows a notice with company details"
+msgstr "einen Hinweis mit Firmendaten zeigen"
+
+msgid "redirects to another card"
+msgstr "auf eine andere Karte weiterleiten"
+
+msgid "redirects to an address"
+msgstr "auf eine Adresse weiterleiten"
+
+msgid "Successor"
+msgstr "Nachfolge"
+
+msgid "Only this site or the company website. Printed codes keep working either way."
+msgstr "Nur diese Website oder die Firmenwebsite. Gedruckte Codes funktionieren in jedem Fall weiter."
+
+msgid "This card's address changed. Printed QR codes still carry the old address (%s); WordPress redirects it for now, but it breaks if another card takes that address. Reprint the codes when you can."
+msgstr "Die Adresse dieser Karte wurde geändert. Gedruckte QR-Codes enthalten weiterhin die alte Adresse (%s); WordPress leitet sie vorerst weiter, das endet aber, sobald eine andere Karte diese Adresse erhält. Drucken Sie die Codes neu, sobald es geht."
+
+msgid "QR colours must be given as #rrggbb."
+msgstr "QR-Farben müssen als #rrggbb angegeben werden."
+
+msgid "QR modules must be darker than the background; inverted codes fail on many phones."
+msgstr "QR-Module müssen dunkler als der Hintergrund sein; invertierte Codes scheitern auf vielen Telefonen."
+
+msgid "QR colours are too close together to scan reliably. Choose a darker module colour or a lighter background."
+msgstr "Die QR-Farben liegen zu nah beieinander, um zuverlässig gescannt zu werden. Wählen Sie eine dunklere Modulfarbe oder einen helleren Hintergrund."
+
+msgid "Views (30 days)"
+msgstr "Aufrufe (30 Tage)"
+
+msgid "Contacts saved (30 days)"
+msgstr "Gespeicherte Kontakte (30 Tage)"
+
+msgid "Last 30 days"
+msgstr "Letzte 30 Tage"
+
+msgid "%1$s views (%2$s from printed codes), %3$s contacts saved."
+msgstr "%1$s Aufrufe (%2$s über gedruckte Codes), %3$s gespeicherte Kontakte."
+
+msgid "Daily views: %1$s from printed codes, %2$s from links."
+msgstr "Tägliche Aufrufe: %1$s über gedruckte Codes, %2$s über Links."
+
+msgid "Numbers"
+msgstr "Zahlen"
+
+msgid "Day"
+msgstr "Tag"
+
+msgid "Code"
+msgstr "Code"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "Statistics"
+msgstr "Statistiken"
+
+msgid "Sorry, you are not allowed to view statistics."
+msgstr "Sie dürfen keine Statistiken ansehen."
+
+msgid "From"
+msgstr "Von"
+
+msgid "To"
+msgstr "Bis"
+
+msgid "Show"
+msgstr "Anzeigen"
+
+msgid "Download CSV"
+msgstr "CSV herunterladen"
+
+msgid "Counts are indicative: no cookies and no personal data are used, bots are filtered out, and repeated hits from one address are capped."
+msgstr "Die Zahlen sind Richtwerte: keine Cookies und keine personenbezogenen Daten, Bots werden herausgefiltert, wiederholte Aufrufe von einer Adresse sind begrenzt."
+
+msgid "Views"
+msgstr "Aufrufe"
+
+msgid "Contacts saved"
+msgstr "Gespeicherte Kontakte"
+
+msgid "Calls"
+msgstr "Anrufe"
+
+msgid "Emails"
+msgstr "E-Mails"
+
+msgid "Shares"
+msgstr "Geteilt"
+
+msgid "Links"
+msgstr "Links"
+
+msgid "This contact is no longer available."
+msgstr "Dieser Kontakt ist nicht mehr verfügbar."
+
+msgctxt "block title"
+msgid "Team Card"
+msgstr "Teamkarte"
+
+msgctxt "block description"
+msgid "One person's business card from Vizito Team Business Cards."
+msgstr "Die Visitenkarte einer Person aus Vizito Team Business Cards."
+
+msgctxt "block keyword"
+msgid "business card"
+msgstr "Visitenkarte"
+
+msgctxt "block keyword"
+msgid "vcard"
+msgstr "vcard"
+
+msgctxt "block keyword"
+msgid "team"
+msgstr "Team"
+
+msgctxt "block keyword"
+msgid "contact"
+msgstr "Kontakt"
+
+msgid "— Choose a card —"
+msgstr "— Karte wählen —"
+

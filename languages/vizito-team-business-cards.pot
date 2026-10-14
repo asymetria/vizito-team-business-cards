@@ -1,0 +1,728 @@
+# Copyright (C) Asymetria
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Vizito Team Business Cards\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: vizito-team-business-cards\n"
+
+#: includes/admin/class-card-metabox.php:100
+msgid "Card details"
+msgstr ""
+
+#: includes/admin/class-card-metabox.php:141
+msgid "Person"
+msgstr ""
+
+#: includes/admin/class-card-metabox.php:142 includes/front/class-card-renderer.php:121 includes/front/class-card-renderer.php:204
+msgid "Contact"
+msgstr ""
+
+#: includes/admin/class-card-metabox.php:143 includes/lifecycle/class-inactive-card.php:215 includes/stats/class-stats-report.php:371
+msgid "Address"
+msgstr ""
+
+#: includes/admin/class-card-metabox.php:144
+msgid "Website and social profiles"
+msgstr ""
+
+#: includes/admin/class-card-metabox.php:145
+msgid "Extra buttons"
+msgstr ""
+
+#: includes/admin/class-card-metabox.php:151
+msgid "Fields left empty use the company profile where a grey hint is shown."
+msgstr ""
+
+#: includes/admin/class-card-metabox.php:274
+msgid "Role and texts, per language"
+msgstr ""
+
+#: includes/admin/class-import-page.php:124 includes/admin/class-import-page.php:142
+msgid "Import / Export"
+msgstr ""
+
+#: includes/admin/class-import-page.php:134 includes/admin/class-import-page.php:286
+msgid "Sorry, you are not allowed to import cards."
+msgstr ""
+
+#. translators: %d: number of cards
+#: includes/admin/class-import-page.php:146
+msgid "%d card imported."
+msgid_plural "%d cards imported."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/class-import-page.php:177
+msgid "Upload a .csv or .txt file of at most 2 MB."
+msgstr ""
+
+#: includes/admin/class-import-page.php:184
+msgid "Paste the rows or choose a file (at most 2 MB)."
+msgstr ""
+
+#: includes/admin/class-import-page.php:205
+msgid "The preview has expired. Start the import again."
+msgstr ""
+
+#: includes/admin/class-import-page.php:298 includes/admin/class-import-page.php:361
+msgid "Import"
+msgstr ""
+
+#: includes/admin/class-import-page.php:299
+msgid "Columns are the ones in an exported file. Rows match existing cards by email, then by slug. An empty cell leaves a field as it is; a single dash clears it."
+msgstr ""
+
+#: includes/admin/class-import-page.php:303
+msgid "CSV file"
+msgstr ""
+
+#: includes/admin/class-import-page.php:304
+msgid "Or paste rows from a spreadsheet"
+msgstr ""
+
+#: includes/admin/class-import-page.php:305 includes/admin/class-import-page.php:328
+msgid "Preview"
+msgstr ""
+
+#: includes/admin/class-import-page.php:308
+msgid "Export"
+msgstr ""
+
+#: includes/admin/class-import-page.php:311
+msgid "Download all cards as CSV"
+msgstr ""
+
+#: includes/admin/class-import-page.php:323
+msgid "Create"
+msgstr ""
+
+#: includes/admin/class-import-page.php:324
+msgid "Update"
+msgstr ""
+
+#: includes/admin/class-import-page.php:325
+msgid "Error"
+msgstr ""
+
+#. translators: 1: cards to create, 2: cards to update, 3: rows with errors
+#: includes/admin/class-import-page.php:334
+msgid "%1$d to create, %2$d to update, %3$d with errors. Nothing has been written yet."
+msgstr ""
+
+#: includes/admin/class-import-page.php:347
+msgid "Rows with errors are skipped. Fix them in the file and import again, or import the rest now."
+msgstr ""
+
+#: includes/admin/class-import-page.php:350
+msgid "Line"
+msgstr ""
+
+#: includes/admin/class-import-page.php:350
+msgid "Action"
+msgstr ""
+
+#: includes/admin/class-import-page.php:350 includes/stats/class-stats-report.php:370
+msgid "Name"
+msgstr ""
+
+#: includes/admin/class-import-page.php:350
+msgid "Notes"
+msgstr ""
+
+#: includes/admin/class-import-page.php:365
+msgid "Start over"
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:92
+msgid "QR code"
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:103 includes/admin/class-qr-admin.php:104 includes/admin/class-qr-admin.php:148
+msgid "Print codes"
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:121
+msgid "Publish the card to get its QR code. The code holds the card's final address."
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:131 includes/admin/class-qr-admin.php:304
+msgid "logo"
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:135
+msgid "Give the printer the SVG. Print one proof and scan it from paper before the full run."
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:145 includes/admin/class-qr-admin.php:217
+msgid "Sorry, you are not allowed to export codes."
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:153
+msgid "No published cards yet."
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:168
+msgid "Download ZIP"
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:169
+msgid "Open test sheet"
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:187
+msgid "This link has expired. Reload the card and try again."
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:193
+msgid "Nothing to download."
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:231
+msgid "Select at least one card."
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:252
+msgid "This server cannot build ZIP files (the PHP zip extension is missing). Download the codes one by one from each card."
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:259
+msgid "The ZIP file could not be created in the server's temporary folder. Download the codes one by one from each card."
+msgstr ""
+
+#: includes/admin/class-qr-admin.php:308
+msgid "QR test sheet"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:75 includes/admin/class-settings-page.php:76 includes/admin/class-settings-page.php:148
+msgid "Company profile"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:84 includes/admin/class-settings-page.php:204
+msgid "Team Cards settings"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:85
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:152
+msgid "Cards use these values wherever their own field is left empty."
+msgstr ""
+
+#: includes/admin/class-settings-page.php:165
+msgid "Select logo"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:212
+msgid "Languages and address"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:214
+msgid "Languages"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:216
+msgid "One per line: a language code and, optionally, a WordPress locale. Example: \"de de_DE\". The order is the order of the language switcher."
+msgstr ""
+
+#: includes/admin/class-settings-page.php:218
+msgid "Default language"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:225
+msgid "Browser language"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:225
+msgid "Open a scanned card in the visitor's browser language when it is on the list."
+msgstr ""
+
+#: includes/admin/class-settings-page.php:227
+msgid "Card address"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:229
+msgid "Printed QR codes contain this address. Changing it breaks every code already printed."
+msgstr ""
+
+#: includes/admin/class-settings-page.php:232
+msgid "Appearance"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:234
+msgid "Accent colour"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:241
+msgid "Colour scheme"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:243
+msgid "Follow the visitor's device"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:244
+msgid "Light"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:245
+msgid "Dark"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:253
+msgid "Photo shape"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:255
+msgid "Round"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:256
+msgid "Square"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:260
+msgid "Photo in contact file"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:260
+msgid "Include the photo in the downloaded contact, so it shows in the phone's address book."
+msgstr ""
+
+#: includes/admin/class-settings-page.php:263
+msgid "QR codes"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:265
+msgid "Module colour"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:268
+msgid "Background colour"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:270
+msgid "Keep modules dark on a light background. Pairs that would not scan reliably are refused."
+msgstr ""
+
+#: includes/admin/class-settings-page.php:272
+msgid "Logo in the code"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:272
+msgid "Put the company logo in the middle of printed codes. Codes then use the highest error correction; test a paper proof before printing."
+msgstr ""
+
+#: includes/admin/class-settings-page.php:275
+msgid "Data"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:277
+msgid "Keep statistics for"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:279
+msgid "days (0 = keep)"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:281
+msgid "Uninstall"
+msgstr ""
+
+#: includes/admin/class-settings-page.php:281
+msgid "Delete all cards, settings and statistics when the plugin is deleted."
+msgstr ""
+
+#. translators: %s: the previous address base, e.g. /card/
+#: includes/admin/class-settings-page.php:309
+msgid "The card address changed. QR codes already printed still point to %s and will stop working."
+msgstr ""
+
+#: includes/admin/class-settings-page.php:322
+msgid "Sorry, you are not allowed to manage these settings."
+msgstr ""
+
+#: includes/card/class-card-type.php:72
+msgid "Business cards"
+msgstr ""
+
+#: includes/card/class-card-type.php:73 includes/front/class-card-renderer.php:105
+msgid "Business card"
+msgstr ""
+
+#: includes/card/class-card-type.php:74
+msgid "Add business card"
+msgstr ""
+
+#: includes/card/class-card-type.php:75
+msgid "Edit business card"
+msgstr ""
+
+#: includes/card/class-card-type.php:76
+msgid "All cards"
+msgstr ""
+
+#: includes/card/class-card-type.php:77
+msgid "Team Cards"
+msgstr ""
+
+#: includes/card/class-fields.php:34
+msgid "First name"
+msgstr ""
+
+#: includes/card/class-fields.php:35
+msgid "Last name"
+msgstr ""
+
+#: includes/card/class-fields.php:36
+msgid "Job title"
+msgstr ""
+
+#: includes/card/class-fields.php:37
+msgid "Intro"
+msgstr ""
+
+#: includes/card/class-fields.php:38
+msgid "Mobile phone"
+msgstr ""
+
+#: includes/card/class-fields.php:39
+msgid "Landline"
+msgstr ""
+
+#: includes/card/class-fields.php:40 includes/front/class-card-renderer.php:191
+msgid "Email"
+msgstr ""
+
+#: includes/card/class-fields.php:41
+msgid "WhatsApp number"
+msgstr ""
+
+#: includes/card/class-fields.php:42
+msgid "Street and number"
+msgstr ""
+
+#: includes/card/class-fields.php:43
+msgid "Postcode"
+msgstr ""
+
+#: includes/card/class-fields.php:44
+msgid "City"
+msgstr ""
+
+#: includes/card/class-fields.php:45
+msgid "Country"
+msgstr ""
+
+#: includes/card/class-fields.php:46
+msgid "Map link"
+msgstr ""
+
+#: includes/card/class-fields.php:47
+msgid "Website"
+msgstr ""
+
+#. translators: %d: button number, 1 to 3.
+#: includes/card/class-fields.php:60
+msgid "Button %d label"
+msgstr ""
+
+#. translators: %d: button number, 1 to 3.
+#: includes/card/class-fields.php:62
+msgid "Button %d link"
+msgstr ""
+
+#: includes/class-settings.php:181
+msgid "The accent colour is light: white text on it is hard to read. A darker shade works better for people with low vision."
+msgstr ""
+
+#: includes/company/class-company-profile.php:51
+msgid "Company name"
+msgstr ""
+
+#: includes/company/class-company-profile.php:58
+msgid "Logo"
+msgstr ""
+
+#. translators: %s: column name
+#: includes/csv/class-importer.php:93
+msgid "Column \"%s\" is not known and was ignored."
+msgstr ""
+
+#. translators: %d: maximum number of rows
+#: includes/csv/class-importer.php:99
+msgid "Only the first %d rows are imported at once."
+msgstr ""
+
+#. translators: 1: cells in the row, 2: columns in the header
+#: includes/csv/class-importer.php:196
+msgid "The row has %1$d cells but the header has %2$d."
+msgstr ""
+
+#. translators: 1: field label, 2: the value given
+#: includes/csv/class-importer.php:234
+msgid "%1$s \"%2$s\" is not valid."
+msgstr ""
+
+#. translators: %s: photo reference from the file
+#: includes/csv/class-importer.php:249
+msgid "Photo \"%s\" is not in the Media Library."
+msgstr ""
+
+#. translators: %s: status from the file
+#: includes/csv/class-importer.php:260
+msgid "Status \"%s\" must be \"active\" or \"inactive\"."
+msgstr ""
+
+#: includes/csv/class-importer.php:281
+msgid "A new card needs a first or last name."
+msgstr ""
+
+#: includes/embed/class-bricks-element.php:62 assets/block.js:95
+msgid "Team Card"
+msgstr ""
+
+#: includes/embed/class-bricks-element.php:107 assets/block.js:59
+msgid "Card"
+msgstr ""
+
+#: includes/embed/class-bricks-element.php:109
+msgid "Choose a card"
+msgstr ""
+
+#: includes/embed/class-bricks-element.php:116 includes/front/class-card-renderer.php:321
+msgid "Language"
+msgstr ""
+
+#: includes/embed/class-bricks-element.php:118
+msgid "Page language"
+msgstr ""
+
+#: includes/embed/class-bricks-element.php:125 assets/block.js:75
+msgid "If the person has left"
+msgstr ""
+
+#: includes/embed/class-bricks-element.php:127 includes/embed/class-bricks-element.php:130 assets/block.js:78
+msgid "Show nothing"
+msgstr ""
+
+#: includes/embed/class-bricks-element.php:128 assets/block.js:79
+msgid "Show company details"
+msgstr ""
+
+#: includes/embed/class-bricks-element.php:163
+msgid "Choose a card in the element settings."
+msgstr ""
+
+#: includes/embed/class-embed-renderer.php:113
+msgid "Vizito Team Business Cards: card not found."
+msgstr ""
+
+#: includes/embed/class-embed-renderer.php:177 includes/front/class-template-loader.php:199
+msgid "Link copied"
+msgstr ""
+
+#: includes/front/class-card-renderer.php:106
+msgid "This business card is no longer active. You can still reach the company:"
+msgstr ""
+
+#: includes/front/class-card-renderer.php:181
+msgid "Save contact"
+msgstr ""
+
+#: includes/front/class-card-renderer.php:187
+msgid "Call"
+msgstr ""
+
+#: includes/front/class-card-renderer.php:260 includes/stats/class-stats-report.php:377
+msgid "Directions"
+msgstr ""
+
+#: includes/front/class-card-renderer.php:317
+msgid "Share"
+msgstr ""
+
+#: includes/front/class-card-renderer.php:357
+msgid "(opens in a new tab)"
+msgstr ""
+
+#: includes/lifecycle/class-inactive-card.php:160
+msgid "Status"
+msgstr ""
+
+#: includes/lifecycle/class-inactive-card.php:179
+msgid "This person no longer works here"
+msgstr ""
+
+#: includes/lifecycle/class-inactive-card.php:181
+msgid "Then the card address"
+msgstr ""
+
+#: includes/lifecycle/class-inactive-card.php:185
+msgid "shows a notice with company details"
+msgstr ""
+
+#: includes/lifecycle/class-inactive-card.php:186
+msgid "redirects to another card"
+msgstr ""
+
+#: includes/lifecycle/class-inactive-card.php:187
+msgid "redirects to an address"
+msgstr ""
+
+#: includes/lifecycle/class-inactive-card.php:194
+msgid "Successor"
+msgstr ""
+
+#: includes/lifecycle/class-inactive-card.php:217
+msgid "Only this site or the company website. Printed codes keep working either way."
+msgstr ""
+
+#. translators: %s: the card's previous address slug
+#: includes/lifecycle/class-inactive-card.php:300
+msgid "This card's address changed. Printed QR codes still carry the old address (%s); WordPress redirects it for now, but it breaks if another card takes that address. Reprint the codes when you can."
+msgstr ""
+
+#: includes/qr/class-qr-colors.php:33
+msgid "QR colours must be given as #rrggbb."
+msgstr ""
+
+#: includes/qr/class-qr-colors.php:37
+msgid "QR modules must be darker than the background; inverted codes fail on many phones."
+msgstr ""
+
+#: includes/qr/class-qr-colors.php:41
+msgid "QR colours are too close together to scan reliably. Choose a darker module colour or a lighter background."
+msgstr ""
+
+#: includes/stats/class-stats-report.php:107
+msgid "Views (30 days)"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:108
+msgid "Contacts saved (30 days)"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:152
+msgid "Last 30 days"
+msgstr ""
+
+#. translators: 1: views, 2: views from printed codes, 3: contacts saved
+#: includes/stats/class-stats-report.php:171
+msgid "%1$s views (%2$s from printed codes), %3$s contacts saved."
+msgstr ""
+
+#. translators: 1: views from printed codes, 2: views from links
+#: includes/stats/class-stats-report.php:196
+msgid "Daily views: %1$s from printed codes, %2$s from links."
+msgstr ""
+
+#: includes/stats/class-stats-report.php:226
+msgid "Numbers"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:227
+msgid "Day"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:227
+msgid "Code"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:227
+msgid "Link"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:237 includes/stats/class-stats-report.php:253
+msgid "Statistics"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:247 includes/stats/class-stats-report.php:287
+msgid "Sorry, you are not allowed to view statistics."
+msgstr ""
+
+#: includes/stats/class-stats-report.php:255
+msgid "From"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:256
+msgid "To"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:257
+msgid "Show"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:258
+msgid "Download CSV"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:275
+msgid "Counts are indicative: no cookies and no personal data are used, bots are filtered out, and repeated hits from one address are capped."
+msgstr ""
+
+#: includes/stats/class-stats-report.php:372
+msgid "Views"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:373
+msgid "Contacts saved"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:374
+msgid "Calls"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:375
+msgid "Emails"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:378
+msgid "Shares"
+msgstr ""
+
+#: includes/stats/class-stats-report.php:379
+msgid "Links"
+msgstr ""
+
+#: includes/vcard/class-vcard-endpoint.php:123
+msgid "This contact is no longer available."
+msgstr ""
+
+#: blocks/team-card/block.json
+msgctxt "block title"
+msgid "Team Card"
+msgstr ""
+
+#: blocks/team-card/block.json
+msgctxt "block description"
+msgid "One person's business card from Vizito Team Business Cards."
+msgstr ""
+
+#: blocks/team-card/block.json
+msgctxt "block keyword"
+msgid "business card"
+msgstr ""
+
+#: blocks/team-card/block.json
+msgctxt "block keyword"
+msgid "vcard"
+msgstr ""
+
+#: blocks/team-card/block.json
+msgctxt "block keyword"
+msgid "team"
+msgstr ""
+
+#: blocks/team-card/block.json
+msgctxt "block keyword"
+msgid "contact"
+msgstr ""
+
+#: assets/block.js:61
+msgid "— Choose a card —"
+msgstr ""
+

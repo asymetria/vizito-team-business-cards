@@ -1,0 +1,53 @@
+/* Vizito Team Business Cards — card edit screen. */
+
+/* The title is derived from the first and last name on save. */
+.post-type-tbcards_card #titlediv {
+	display: none;
+}
+
+.tbc-metabox .tbc-group {
+	margin: 0 0 1.5em;
+	padding: 0.5em 1em 0.25em;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+}
+
+.tbc-metabox .tbc-group legend {
+	padding: 0 0.4em;
+	font-weight: 600;
+}
+
+.tbc-metabox .tbc-field {
+	margin: 0.6em 0 1em;
+}
+
+.tbc-metabox .tbc-field label {
+	font-weight: 500;
+}
+
+.tbc-metabox input::placeholder,
+.tbc-metabox textarea::placeholder {
+	color: #8c8f94;
+	font-style: italic;
+}
+
+.tbc-tablist {
+	display: flex;
+	gap: 4px;
+	margin: 0.5em 0 0.75em;
+}
+
+.tbc-tablist [aria-selected="true"] {
+	background: #2271b1;
+	border-color: #2271b1;
+	color: #fff;
+}
+
+/* Once the tabs work, the per-panel code label is redundant. */
+.tbc-tabs-ready .tbc-panel-label {
+	display: none;
+}
+
+.tbc-panel + .tbc-panel {
+	margin-top: 1em;
+}
