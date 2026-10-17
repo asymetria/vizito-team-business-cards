@@ -24,7 +24,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Import_Page' ) ) {
 	 */
 	final class Import_Page {
 
-		public const SLUG       = 'tbc-import';
+		public const SLUG       = 'tbcards-import';
 		public const NONCE      = 'tbcards_import';
 		public const PLAN_KEY   = 'tbcards_import_';
 		public const BATCH      = 50;
@@ -300,8 +300,8 @@ if ( ! class_exists( __NAMESPACE__ . '\\Import_Page' ) ) {
 			echo '<form method="post" enctype="multipart/form-data" action="' . $post . '">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
 			echo '<input type="hidden" name="action" value="tbcards_import_preview">';
 			wp_nonce_field( self::NONCE );
-			echo '<p><label for="tbc-csv-file">' . esc_html__( 'CSV file', 'vizito-team-business-cards' ) . '</label><br><input type="file" id="tbc-csv-file" name="tbcards_csv_file" accept=".csv,.txt,text/csv"></p>';
-			echo '<p><label for="tbc-csv-text">' . esc_html__( 'Or paste rows from a spreadsheet', 'vizito-team-business-cards' ) . '</label><br><textarea id="tbc-csv-text" name="tbcards_csv_text" rows="8" class="large-text code"></textarea></p>';
+			echo '<p><label for="tbcards-csv-file">' . esc_html__( 'CSV file', 'vizito-team-business-cards' ) . '</label><br><input type="file" id="tbcards-csv-file" name="tbcards_csv_file" accept=".csv,.txt,text/csv"></p>';
+			echo '<p><label for="tbcards-csv-text">' . esc_html__( 'Or paste rows from a spreadsheet', 'vizito-team-business-cards' ) . '</label><br><textarea id="tbcards-csv-text" name="tbcards_csv_text" rows="8" class="large-text code"></textarea></p>';
 			submit_button( __( 'Preview', 'vizito-team-business-cards' ) );
 			echo '</form>';
 

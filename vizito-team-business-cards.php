@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Vizito Team Business Cards
  * Description:       Digital business cards for your whole team, on your own domain: QR codes for print, vCard download, several languages, privacy-friendly statistics.
- * Version:           1.0.3
+ * Version:           1.0.4
  * Requires at least: 6.2
  * Requires PHP:      8.0
  * Author:            Asymetria
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'TBCARDS_VERSION' ) ) {
-	define( 'TBCARDS_VERSION', '1.0.3' );
+	define( 'TBCARDS_VERSION', '1.0.4' );
 	define( 'TBCARDS_FILE', __FILE__ );
 	define( 'TBCARDS_DIR', plugin_dir_path( __FILE__ ) );
 	define( 'TBCARDS_URL', plugin_dir_url( __FILE__ ) );

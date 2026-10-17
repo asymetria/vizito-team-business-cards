@@ -154,6 +154,8 @@ describe(
 				$html = $sent[0][1];
 
 				assert_same( 2, substr_count( $html, '<figure>' ) );
+				assert_contains( 'assets/qr-sheet.css?ver=', $html );
+				assert_false( str_contains( $html, '<style' ) ); // Enqueued stylesheet, no inline tag.
 				assert_contains( '&lt;b&gt;Nowak&lt;/b&gt;', $html );
 				assert_false( str_contains( $html, 'Employee' ) );
 			}

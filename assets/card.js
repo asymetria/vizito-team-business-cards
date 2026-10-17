@@ -36,7 +36,7 @@
 	 * "lang" and is never overridden.
 	 *
 	 * @param {string}   href         Current address.
-	 * @param {Object}   config       window.tbcCard.
+	 * @param {Object}   config       window.tbcardsCard.
 	 * @param {string[]} browserLangs navigator.languages.
 	 * @return {string|null}
 	 */
@@ -136,7 +136,7 @@
 	 * does not count. "vcard" is never sent: the server counts downloads.
 	 *
 	 * @param {Object} nav    navigator.
-	 * @param {Object} config window.tbcCard.
+	 * @param {Object} config window.tbcardsCard.
 	 * @param {string} event  Event name.
 	 * @param {string} source "qr" or "link".
 	 * @param {number} [card] Card id; the page's own card when omitted.
@@ -175,7 +175,7 @@
 		return;
 	}
 
-	var config = root.tbcCard || {};
+	var config = root.tbcardsCard || {};
 	var target = autoSwitchUrl( root.location.href, config, root.navigator.languages || [ root.navigator.language ] );
 
 	if ( target ) {
@@ -194,26 +194,26 @@
 	}
 
 	root.document.addEventListener( 'click', function ( event ) {
-		var tracked = event.target.closest && event.target.closest( '[data-tbc-event]' );
+		var tracked = event.target.closest && event.target.closest( '[data-tbcards-event]' );
 
 		if ( tracked ) {
-			var holder = tracked.closest( '[data-tbc-card]' );
+			var holder = tracked.closest( '[data-tbcards-card]' );
 
-			track( root.navigator, config, tracked.getAttribute( 'data-tbc-event' ), source, holder ? holder.getAttribute( 'data-tbc-card' ) : 0 );
+			track( root.navigator, config, tracked.getAttribute( 'data-tbcards-event' ), source, holder ? holder.getAttribute( 'data-tbcards-card' ) : 0 );
 		}
 
-		var button = event.target.closest && event.target.closest( '.tbc-share' );
+		var button = event.target.closest && event.target.closest( '.tbcards-share' );
 
 		if ( ! button ) {
 			return;
 		}
 
-		var card = button.closest( '.tbc-card' );
+		var card = button.closest( '.tbcards-card' );
 
 		share(
 			root.navigator,
-			{ title: root.document.title, url: button.getAttribute( 'data-tbc-url' ) },
-			card ? card.querySelector( '.tbc-status' ) : null,
+			{ title: root.document.title, url: button.getAttribute( 'data-tbcards-url' ) },
+			card ? card.querySelector( '.tbcards-status' ) : null,
 			config.copied || ''
 		);
 	} );

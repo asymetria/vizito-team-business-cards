@@ -22,7 +22,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Stats_Report' ) ) {
 	 */
 	final class Stats_Report {
 
-		public const PAGE_SLUG   = 'tbc-stats';
+		public const PAGE_SLUG   = 'tbcards-stats';
 		public const CSV_NONCE   = 'tbcards_stats_csv';
 		public const DAYS        = 30;
 		public const PAGE_EVENTS = array( 'view', 'vcard', 'call', 'email', 'whatsapp', 'directions', 'share', 'link' );
@@ -198,7 +198,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Stats_Report' ) ) {
 				number_format_i18n( $link )
 			);
 
-			$svg = '<svg class="tbc-chart" role="img" aria-label="' . esc_attr( $label ) . '" viewBox="0 0 ' . $w . ' ' . $h . '" width="100%" height="' . $h . '" preserveAspectRatio="none">';
+			$svg = '<svg class="tbcards-chart" role="img" aria-label="' . esc_attr( $label ) . '" viewBox="0 0 ' . $w . ' ' . $h . '" width="100%" height="' . $h . '" preserveAspectRatio="none">';
 			$x   = 0;
 
 			foreach ( $series as $counts ) {

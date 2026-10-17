@@ -51,11 +51,11 @@ if ( ! class_exists( __NAMESPACE__ . '\\Icons' ) ) {
 		 * @return string
 		 */
 		public static function svg( string $name ): string {
-			$open = '<svg class="tbc-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"';
+			$open = '<svg class="tbcards-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24"';
 
 			if ( isset( self::MONOGRAMS[ $name ] ) ) {
 				return $open . '><circle cx="12" cy="12" r="11" fill="currentColor"/>'
-					. '<text x="12" y="16" text-anchor="middle" font-size="9.5" font-weight="700" font-family="system-ui,sans-serif" fill="var(--tbc-bg,#fff)">'
+					. '<text x="12" y="16" text-anchor="middle" font-size="9.5" font-weight="700" font-family="system-ui,sans-serif" fill="var(--tbcards-bg,#fff)">'
 					. self::MONOGRAMS[ $name ] . '</text></svg>';
 			}
 

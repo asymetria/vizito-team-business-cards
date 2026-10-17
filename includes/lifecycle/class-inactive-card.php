@@ -178,8 +178,8 @@ if ( ! class_exists( __NAMESPACE__ . '\\Inactive_Card' ) ) {
 			echo '<p><label><input type="checkbox" name="tbcards_status[inactive]" value="1"' . checked( $inactive, true, false ) . '> '
 				. esc_html__( 'This person no longer works here', 'vizito-team-business-cards' ) . '</label></p>';
 
-			echo '<p><label for="tbc-inactive-mode">' . esc_html__( 'Then the card address', 'vizito-team-business-cards' ) . '</label><br>';
-			echo '<select id="tbc-inactive-mode" name="tbcards_status[mode]">';
+			echo '<p><label for="tbcards-inactive-mode">' . esc_html__( 'Then the card address', 'vizito-team-business-cards' ) . '</label><br>';
+			echo '<select id="tbcards-inactive-mode" name="tbcards_status[mode]">';
 
 			foreach ( array(
 				'notice' => __( 'shows a notice with company details', 'vizito-team-business-cards' ),
@@ -191,7 +191,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Inactive_Card' ) ) {
 
 			echo '</select></p>';
 
-			echo '<p><label for="tbc-inactive-card">' . esc_html__( 'Successor', 'vizito-team-business-cards' ) . '</label><br><select id="tbc-inactive-card" name="tbcards_status[card]"><option value="0">—</option>';
+			echo '<p><label for="tbcards-inactive-card">' . esc_html__( 'Successor', 'vizito-team-business-cards' ) . '</label><br><select id="tbcards-inactive-card" name="tbcards_status[card]"><option value="0">—</option>';
 
 			foreach ( get_posts(
 				array(
@@ -212,8 +212,8 @@ if ( ! class_exists( __NAMESPACE__ . '\\Inactive_Card' ) ) {
 
 			echo '</select></p>';
 
-			echo '<p><label for="tbc-inactive-url">' . esc_html__( 'Address', 'vizito-team-business-cards' ) . '</label><br>';
-			echo '<input type="url" class="widefat" id="tbc-inactive-url" name="tbcards_status[url]" value="' . esc_attr( 'url' === $mode ? (string) $target : '' ) . '"></p>';
+			echo '<p><label for="tbcards-inactive-url">' . esc_html__( 'Address', 'vizito-team-business-cards' ) . '</label><br>';
+			echo '<input type="url" class="widefat" id="tbcards-inactive-url" name="tbcards_status[url]" value="' . esc_attr( 'url' === $mode ? (string) $target : '' ) . '"></p>';
 			echo '<p class="description">' . esc_html__( 'Only this site or the company website. Printed codes keep working either way.', 'vizito-team-business-cards' ) . '</p>';
 		}
 

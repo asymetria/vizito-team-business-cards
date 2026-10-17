@@ -117,7 +117,7 @@ describe(
 				$matrix = array_fill( 0, 41, array_fill( 0, 41, true ) );
 				$svg    = ( new Svg_Writer() )->write( $matrix, array( 'logo' => 'data:image/png;base64,AAAA' ) );
 
-				preg_match( '/<rect class="tbc-qr-pad" x="([\d.]+)" y="([\d.]+)" width="([\d.]+)"/', $svg, $pad );
+				preg_match( '/<rect class="tbcards-qr-pad" x="([\d.]+)" y="([\d.]+)" width="([\d.]+)"/', $svg, $pad );
 
 				assert_contains( '<image href="data:image/png;base64,AAAA" xlink:href="data:image/png;base64,AAAA"', $svg );
 				assert_contains( 'xmlns:xlink="http://www.w3.org/1999/xlink"', $svg );

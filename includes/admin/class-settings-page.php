@@ -24,8 +24,8 @@ if ( ! class_exists( __NAMESPACE__ . '\\Settings_Page' ) ) {
 	final class Settings_Page {
 
 		public const PARENT       = 'edit.php?post_type=' . Card_Repository::POST_TYPE;
-		public const COMPANY_SLUG = 'tbc-company';
-		public const SETTINGS_SLUG = 'tbc-settings';
+		public const COMPANY_SLUG = 'tbcards-company';
+		public const SETTINGS_SLUG = 'tbcards-settings';
 
 		/**
 		 * Plugin settings.
@@ -131,7 +131,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Settings_Page' ) ) {
 				wp_enqueue_media();
 			}
 
-			wp_enqueue_script( 'tbc-admin', TBCARDS_URL . 'assets/admin.js', array(), TBCARDS_VERSION, true );
+			wp_enqueue_script( 'tbcards-admin', TBCARDS_URL . 'assets/admin.js', array(), TBCARDS_VERSION, true );
 		}
 
 		/**
@@ -156,13 +156,13 @@ if ( ! class_exists( __NAMESPACE__ . '\\Settings_Page' ) ) {
 
 			foreach ( Company_Profile::fields() as $key => $def ) {
 				$value = $raw[ $key ] ?? '';
-				$id    = 'tbc-company-' . $key;
+				$id    = 'tbcards-company-' . $key;
 
 				echo '<tr><th scope="row"><label for="' . esc_attr( $id ) . '">' . esc_html( $def['label'] ) . '</label></th><td>';
 
 				if ( 'attachment' === $def['type'] ) {
 					echo '<input type="number" min="0" class="small-text" id="' . esc_attr( $id ) . '" name="' . esc_attr( Company_Profile::OPTION . '[' . $key . ']' ) . '" value="' . esc_attr( (string) absint( $value ) ) . '">';
-					echo ' <button type="button" class="button" data-tbc-media="' . esc_attr( $id ) . '">' . esc_html__( 'Select logo', 'vizito-team-business-cards' ) . '</button>';
+					echo ' <button type="button" class="button" data-tbcards-media="' . esc_attr( $id ) . '">' . esc_html__( 'Select logo', 'vizito-team-business-cards' ) . '</button>';
 				} elseif ( $def['translated'] ) {
 					foreach ( $codes as $code ) {
 						$lang_id = $id . '-' . $code;
@@ -211,32 +211,32 @@ if ( ! class_exists( __NAMESPACE__ . '\\Settings_Page' ) ) {
 
 			echo '<h2>' . esc_html__( 'Languages and address', 'vizito-team-business-cards' ) . '</h2><table class="form-table" role="presentation">';
 
-			echo '<tr><th scope="row"><label for="tbc-languages">' . esc_html__( 'Languages', 'vizito-team-business-cards' ) . '</label></th><td>';
-			echo '<textarea id="tbc-languages" class="regular-text code" rows="4" name="' . esc_attr( $name( 'languages' ) ) . '">' . esc_textarea( implode( "\n", $lines ) ) . '</textarea>';
+			echo '<tr><th scope="row"><label for="tbcards-languages">' . esc_html__( 'Languages', 'vizito-team-business-cards' ) . '</label></th><td>';
+			echo '<textarea id="tbcards-languages" class="regular-text code" rows="4" name="' . esc_attr( $name( 'languages' ) ) . '">' . esc_textarea( implode( "\n", $lines ) ) . '</textarea>';
 			echo '<p class="description">' . esc_html__( 'One per line: a language code and, optionally, a WordPress locale. Example: "de de_DE". The order is the order of the language switcher.', 'vizito-team-business-cards' ) . '</p></td></tr>';
 
-			echo '<tr><th scope="row"><label for="tbc-default-language">' . esc_html__( 'Default language', 'vizito-team-business-cards' ) . '</label></th><td>';
-			echo '<select id="tbc-default-language" name="' . esc_attr( $name( 'default_language' ) ) . '">';
+			echo '<tr><th scope="row"><label for="tbcards-default-language">' . esc_html__( 'Default language', 'vizito-team-business-cards' ) . '</label></th><td>';
+			echo '<select id="tbcards-default-language" name="' . esc_attr( $name( 'default_language' ) ) . '">';
 			foreach ( $all['languages'] as $row ) {
 				echo '<option value="' . esc_attr( $row['code'] ) . '"' . selected( $row['code'], $all['default_language'], false ) . '>' . esc_html( $row['code'] ) . '</option>';
 			}
 			echo '</select></td></tr>';
 
-			self::checkbox_row( $name( 'auto_language' ), 'tbc-auto-language', (bool) $all['auto_language'], __( 'Browser language', 'vizito-team-business-cards' ), __( 'Open a scanned card in the visitor\'s browser language when it is on the list.', 'vizito-team-business-cards' ) );
+			self::checkbox_row( $name( 'auto_language' ), 'tbcards-auto-language', (bool) $all['auto_language'], __( 'Browser language', 'vizito-team-business-cards' ), __( 'Open a scanned card in the visitor\'s browser language when it is on the list.', 'vizito-team-business-cards' ) );
 
-			echo '<tr><th scope="row"><label for="tbc-url-base">' . esc_html__( 'Card address', 'vizito-team-business-cards' ) . '</label></th><td>';
-			echo '<code>' . esc_html( home_url( '/' ) ) . '</code><input type="text" id="tbc-url-base" class="regular-text" name="' . esc_attr( $name( 'url_base' ) ) . '" value="' . esc_attr( $all['url_base'] ) . '"><code>/first-last/</code>';
+			echo '<tr><th scope="row"><label for="tbcards-url-base">' . esc_html__( 'Card address', 'vizito-team-business-cards' ) . '</label></th><td>';
+			echo '<code>' . esc_html( home_url( '/' ) ) . '</code><input type="text" id="tbcards-url-base" class="regular-text" name="' . esc_attr( $name( 'url_base' ) ) . '" value="' . esc_attr( $all['url_base'] ) . '"><code>/first-last/</code>';
 			echo '<p class="description">' . esc_html__( 'Printed QR codes contain this address. Changing it breaks every code already printed.', 'vizito-team-business-cards' ) . '</p></td></tr>';
 			echo '</table>';
 
 			echo '<h2>' . esc_html__( 'Appearance', 'vizito-team-business-cards' ) . '</h2><table class="form-table" role="presentation">';
 
-			echo '<tr><th scope="row"><label for="tbc-accent">' . esc_html__( 'Accent colour', 'vizito-team-business-cards' ) . '</label></th><td>';
-			echo '<input type="color" id="tbc-accent" name="' . esc_attr( $name( 'accent' ) ) . '" value="' . esc_attr( $all['accent'] ) . '"></td></tr>';
+			echo '<tr><th scope="row"><label for="tbcards-accent">' . esc_html__( 'Accent colour', 'vizito-team-business-cards' ) . '</label></th><td>';
+			echo '<input type="color" id="tbcards-accent" name="' . esc_attr( $name( 'accent' ) ) . '" value="' . esc_attr( $all['accent'] ) . '"></td></tr>';
 
 			self::select_row(
 				$name( 'scheme' ),
-				'tbc-scheme',
+				'tbcards-scheme',
 				$all['scheme'],
 				__( 'Colour scheme', 'vizito-team-business-cards' ),
 				array(
@@ -248,7 +248,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Settings_Page' ) ) {
 
 			self::select_row(
 				$name( 'photo_shape' ),
-				'tbc-photo-shape',
+				'tbcards-photo-shape',
 				$all['photo_shape'],
 				__( 'Photo shape', 'vizito-team-business-cards' ),
 				array(
@@ -257,28 +257,28 @@ if ( ! class_exists( __NAMESPACE__ . '\\Settings_Page' ) ) {
 				)
 			);
 
-			self::checkbox_row( $name( 'vcard_photo' ), 'tbc-vcard-photo', (bool) $all['vcard_photo'], __( 'Photo in contact file', 'vizito-team-business-cards' ), __( 'Include the photo in the downloaded contact, so it shows in the phone\'s address book.', 'vizito-team-business-cards' ) );
+			self::checkbox_row( $name( 'vcard_photo' ), 'tbcards-vcard-photo', (bool) $all['vcard_photo'], __( 'Photo in contact file', 'vizito-team-business-cards' ), __( 'Include the photo in the downloaded contact, so it shows in the phone\'s address book.', 'vizito-team-business-cards' ) );
 			echo '</table>';
 
 			echo '<h2>' . esc_html__( 'QR codes', 'vizito-team-business-cards' ) . '</h2><table class="form-table" role="presentation">';
 
-			echo '<tr><th scope="row"><label for="tbc-qr-dark">' . esc_html__( 'Module colour', 'vizito-team-business-cards' ) . '</label></th><td>';
-			echo '<input type="color" id="tbc-qr-dark" name="' . esc_attr( $name( 'qr_dark' ) ) . '" value="' . esc_attr( $all['qr_dark'] ) . '"></td></tr>';
+			echo '<tr><th scope="row"><label for="tbcards-qr-dark">' . esc_html__( 'Module colour', 'vizito-team-business-cards' ) . '</label></th><td>';
+			echo '<input type="color" id="tbcards-qr-dark" name="' . esc_attr( $name( 'qr_dark' ) ) . '" value="' . esc_attr( $all['qr_dark'] ) . '"></td></tr>';
 
-			echo '<tr><th scope="row"><label for="tbc-qr-light">' . esc_html__( 'Background colour', 'vizito-team-business-cards' ) . '</label></th><td>';
-			echo '<input type="color" id="tbc-qr-light" name="' . esc_attr( $name( 'qr_light' ) ) . '" value="' . esc_attr( $all['qr_light'] ) . '">';
+			echo '<tr><th scope="row"><label for="tbcards-qr-light">' . esc_html__( 'Background colour', 'vizito-team-business-cards' ) . '</label></th><td>';
+			echo '<input type="color" id="tbcards-qr-light" name="' . esc_attr( $name( 'qr_light' ) ) . '" value="' . esc_attr( $all['qr_light'] ) . '">';
 			echo '<p class="description">' . esc_html__( 'Keep modules dark on a light background. Pairs that would not scan reliably are refused.', 'vizito-team-business-cards' ) . '</p></td></tr>';
 
-			self::checkbox_row( $name( 'qr_logo' ), 'tbc-qr-logo', (bool) $all['qr_logo'], __( 'Logo in the code', 'vizito-team-business-cards' ), __( 'Put the company logo in the middle of printed codes. Codes then use the highest error correction; test a paper proof before printing.', 'vizito-team-business-cards' ) );
+			self::checkbox_row( $name( 'qr_logo' ), 'tbcards-qr-logo', (bool) $all['qr_logo'], __( 'Logo in the code', 'vizito-team-business-cards' ), __( 'Put the company logo in the middle of printed codes. Codes then use the highest error correction; test a paper proof before printing.', 'vizito-team-business-cards' ) );
 			echo '</table>';
 
 			echo '<h2>' . esc_html__( 'Data', 'vizito-team-business-cards' ) . '</h2><table class="form-table" role="presentation">';
 
-			echo '<tr><th scope="row"><label for="tbc-retention">' . esc_html__( 'Keep statistics for', 'vizito-team-business-cards' ) . '</label></th><td>';
-			echo '<input type="number" min="0" max="' . esc_attr( (string) Settings::MAX_RETENTION ) . '" class="small-text" id="tbc-retention" name="' . esc_attr( $name( 'retention_days' ) ) . '" value="' . esc_attr( (string) $all['retention_days'] ) . '"> ';
+			echo '<tr><th scope="row"><label for="tbcards-retention">' . esc_html__( 'Keep statistics for', 'vizito-team-business-cards' ) . '</label></th><td>';
+			echo '<input type="number" min="0" max="' . esc_attr( (string) Settings::MAX_RETENTION ) . '" class="small-text" id="tbcards-retention" name="' . esc_attr( $name( 'retention_days' ) ) . '" value="' . esc_attr( (string) $all['retention_days'] ) . '"> ';
 			echo esc_html__( 'days (0 = keep)', 'vizito-team-business-cards' ) . '</td></tr>';
 
-			self::checkbox_row( $name( 'delete_data' ), 'tbc-delete-data', (bool) $all['delete_data'], __( 'Uninstall', 'vizito-team-business-cards' ), __( 'Delete all cards, settings and statistics when the plugin is deleted.', 'vizito-team-business-cards' ) );
+			self::checkbox_row( $name( 'delete_data' ), 'tbcards-delete-data', (bool) $all['delete_data'], __( 'Uninstall', 'vizito-team-business-cards' ), __( 'Delete all cards, settings and statistics when the plugin is deleted.', 'vizito-team-business-cards' ) );
 			echo '</table>';
 
 			submit_button();

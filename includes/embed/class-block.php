@@ -22,7 +22,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Block' ) ) {
 	 */
 	final class Block {
 
-		public const EDITOR_HANDLE = 'tbc-block-editor';
+		public const EDITOR_HANDLE = 'tbcards-block-editor';
 
 		/**
 		 * Shared embed path.

@@ -71,7 +71,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Renderer' ) ) {
 
 			$page = 'page' === $args['context'];
 
-			$html  = '<article class="tbc-card tbc-card--' . ( $page ? 'page' : 'embed' ) . '" data-tbc-card="' . esc_attr( (string) $card->id() ) . '" lang="' . esc_attr( $card->lang() ) . '">';
+			$html  = '<article class="tbcards-card tbcards-card--' . ( $page ? 'page' : 'embed' ) . '" data-tbcards-card="' . esc_attr( (string) $card->id() ) . '" lang="' . esc_attr( $card->lang() ) . '">';
 			$html .= $this->head( $card, $page );
 			$html .= $this->actions( $card, (string) $args['vcard_url'] );
 			$html .= $this->details( $card );
@@ -96,14 +96,14 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Renderer' ) ) {
 			$company = $this->company->value( 'company_name', $lang );
 			$logo    = $this->company->logo_id() ? wp_get_attachment_image_url( $this->company->logo_id(), 'medium' ) : false;
 			$tag     = 'page' === $context ? 'h1' : 'h2';
-			$html    = '<article class="tbc-card tbc-card--' . ( 'page' === $context ? 'page' : 'embed' ) . ' tbc-card--inactive" lang="' . esc_attr( $lang ) . '"><header class="tbc-card__head">';
+			$html    = '<article class="tbcards-card tbcards-card--' . ( 'page' === $context ? 'page' : 'embed' ) . ' tbcards-card--inactive" lang="' . esc_attr( $lang ) . '"><header class="tbcards-card__head">';
 
 			if ( $logo ) {
-				$html .= '<img class="tbc-card__logo" src="' . esc_url( $logo ) . '" alt="' . esc_attr( $company ) . '">';
+				$html .= '<img class="tbcards-card__logo" src="' . esc_url( $logo ) . '" alt="' . esc_attr( $company ) . '">';
 			}
 
-			$html .= '<' . $tag . ' class="tbc-card__name">' . esc_html( '' !== $company ? $company : __( 'Business card', 'vizito-team-business-cards' ) ) . '</' . $tag . '>';
-			$html .= '<p class="tbc-card__intro">' . esc_html__( 'This business card is no longer active. You can still reach the company:', 'vizito-team-business-cards' ) . '</p></header>';
+			$html .= '<' . $tag . ' class="tbcards-card__name">' . esc_html( '' !== $company ? $company : __( 'Business card', 'vizito-team-business-cards' ) ) . '</' . $tag . '>';
+			$html .= '<p class="tbcards-card__intro">' . esc_html__( 'This business card is no longer active. You can still reach the company:', 'vizito-team-business-cards' ) . '</p></header>';
 
 			$details = array();
 			$phone   = Field_Sanitizer::dial( $this->company->value( 'landline', $lang ) );
@@ -118,7 +118,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Renderer' ) ) {
 			}
 
 			if ( array() !== $details ) {
-				$html .= '<nav class="tbc-card__actions" aria-label="' . esc_attr__( 'Contact', 'vizito-team-business-cards' ) . '">' . implode( '', $details ) . '</nav>';
+				$html .= '<nav class="tbcards-card__actions" aria-label="' . esc_attr__( 'Contact', 'vizito-team-business-cards' ) . '">' . implode( '', $details ) . '</nav>';
 			}
 
 			return $html . '</article>';
@@ -137,30 +137,30 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Renderer' ) ) {
 			$logo    = $this->company->logo_id() ? wp_get_attachment_image_url( $this->company->logo_id(), 'medium' ) : false;
 			$photo   = $card->photo_id() ? wp_get_attachment_image_url( $card->photo_id(), 'medium' ) : false;
 			$tag     = $page ? 'h1' : 'h2';
-			$html    = '<header class="tbc-card__head">';
+			$html    = '<header class="tbcards-card__head">';
 
 			if ( $logo ) {
-				$html .= '<img class="tbc-card__logo" src="' . esc_url( $logo ) . '" alt="' . esc_attr( $company ) . '">';
+				$html .= '<img class="tbcards-card__logo" src="' . esc_url( $logo ) . '" alt="' . esc_attr( $company ) . '">';
 			}
 
 			if ( $photo ) {
-				$html .= '<img class="tbc-card__photo" src="' . esc_url( $photo ) . '" alt="' . esc_attr( $name ) . '" width="160" height="160">';
+				$html .= '<img class="tbcards-card__photo" src="' . esc_url( $photo ) . '" alt="' . esc_attr( $name ) . '" width="160" height="160">';
 			} else {
-				$html .= '<span class="tbc-card__photo tbc-card__initials" aria-hidden="true">' . esc_html( $this->initials( $card ) ) . '</span>';
+				$html .= '<span class="tbcards-card__photo tbcards-card__initials" aria-hidden="true">' . esc_html( $this->initials( $card ) ) . '</span>';
 			}
 
-			$html .= '<' . $tag . ' class="tbc-card__name">' . esc_html( $name ) . '</' . $tag . '>';
+			$html .= '<' . $tag . ' class="tbcards-card__name">' . esc_html( $name ) . '</' . $tag . '>';
 
 			if ( $card->has( 'job_title' ) ) {
-				$html .= '<p class="tbc-card__title">' . esc_html( $card->get( 'job_title' ) ) . '</p>';
+				$html .= '<p class="tbcards-card__title">' . esc_html( $card->get( 'job_title' ) ) . '</p>';
 			}
 
 			if ( '' !== $company ) {
-				$html .= '<p class="tbc-card__company">' . esc_html( $company ) . '</p>';
+				$html .= '<p class="tbcards-card__company">' . esc_html( $company ) . '</p>';
 			}
 
 			if ( $card->has( 'intro' ) ) {
-				$html .= '<p class="tbc-card__intro">' . nl2br( esc_html( $card->get( 'intro' ) ) ) . '</p>';
+				$html .= '<p class="tbcards-card__intro">' . nl2br( esc_html( $card->get( 'intro' ) ) ) . '</p>';
 			}
 
 			return $html . '</header>';
@@ -177,7 +177,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Renderer' ) ) {
 			$items = array();
 
 			if ( '' !== $vcard_url ) {
-				$items[] = '<a class="tbc-action tbc-action--primary" href="' . esc_url( $vcard_url ) . '" download data-tbc-event="vcard">'
+				$items[] = '<a class="tbcards-action tbcards-action--primary" href="' . esc_url( $vcard_url ) . '" download data-tbcards-event="vcard">'
 					. Icons::svg( 'download' ) . '<span>' . esc_html__( 'Save contact', 'vizito-team-business-cards' ) . '</span></a>';
 			}
 
@@ -201,7 +201,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Renderer' ) ) {
 				return '';
 			}
 
-			return '<nav class="tbc-card__actions" aria-label="' . esc_attr__( 'Contact', 'vizito-team-business-cards' ) . '">' . implode( '', $items ) . '</nav>';
+			return '<nav class="tbcards-card__actions" aria-label="' . esc_attr__( 'Contact', 'vizito-team-business-cards' ) . '">' . implode( '', $items ) . '</nav>';
 		}
 
 		/**
@@ -230,7 +230,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Renderer' ) ) {
 				$rows[] = $this->detail( Fields::get( 'website' )['label'], $card->get( 'website' ), (string) $shown, 'link', true );
 			}
 
-			return array() === $rows ? '' : '<dl class="tbc-card__details">' . implode( '', $rows ) . '</dl>';
+			return array() === $rows ? '' : '<dl class="tbcards-card__details">' . implode( '', $rows ) . '</dl>';
 		}
 
 		/**
@@ -251,7 +251,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Renderer' ) ) {
 				? $card->get( 'map_url' )
 				: 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( implode( ', ', $lines ) );
 
-			$html = '<div class="tbc-card__address">';
+			$html = '<div class="tbcards-card__address">';
 
 			if ( array() !== $lines ) {
 				$html .= '<address>' . implode( '<br>', array_map( 'esc_html', $lines ) ) . '</address>';
@@ -277,10 +277,10 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Renderer' ) ) {
 				}
 
 				$label   = Fields::get( $network )['label'] . ': ' . $card->full_name();
-				$items[] = '<li><a href="' . esc_url( $card->get( $network ) ) . '" target="_blank" rel="noopener" aria-label="' . esc_attr( $label ) . '" data-tbc-event="link">' . Icons::svg( $network ) . '</a></li>';
+				$items[] = '<li><a href="' . esc_url( $card->get( $network ) ) . '" target="_blank" rel="noopener" aria-label="' . esc_attr( $label ) . '" data-tbcards-event="link">' . Icons::svg( $network ) . '</a></li>';
 			}
 
-			return array() === $items ? '' : '<ul class="tbc-card__social">' . implode( '', $items ) . '</ul>';
+			return array() === $items ? '' : '<ul class="tbcards-card__social">' . implode( '', $items ) . '</ul>';
 		}
 
 		/**
@@ -297,11 +297,11 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Renderer' ) ) {
 				$url   = $card->get( "custom_{$i}_url" );
 
 				if ( '' !== $label && '' !== $url ) {
-					$items[] = '<a class="tbc-button" href="' . esc_url( $url ) . '" target="_blank" rel="noopener" data-tbc-event="link">' . esc_html( $label ) . self::new_tab() . '</a>';
+					$items[] = '<a class="tbcards-button" href="' . esc_url( $url ) . '" target="_blank" rel="noopener" data-tbcards-event="link">' . esc_html( $label ) . self::new_tab() . '</a>';
 				}
 			}
 
-			return array() === $items ? '' : '<div class="tbc-card__buttons">' . implode( '', $items ) . '</div>';
+			return array() === $items ? '' : '<div class="tbcards-card__buttons">' . implode( '', $items ) . '</div>';
 		}
 
 		/**
@@ -312,13 +312,13 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Renderer' ) ) {
 		 * @return string
 		 */
 		private function foot( Card $card, array $languages ): string {
-			$html  = '<footer class="tbc-card__foot">';
-			$html .= '<button type="button" class="tbc-share" data-tbc-event="share" data-tbc-url="' . esc_url( $card->url() ) . '">'
+			$html  = '<footer class="tbcards-card__foot">';
+			$html .= '<button type="button" class="tbcards-share" data-tbcards-event="share" data-tbcards-url="' . esc_url( $card->url() ) . '">'
 				. Icons::svg( 'share' ) . '<span>' . esc_html__( 'Share', 'vizito-team-business-cards' ) . '</span></button>';
-			$html .= '<p class="tbc-status" role="status" aria-live="polite"></p>';
+			$html .= '<p class="tbcards-status" role="status" aria-live="polite"></p>';
 
 			if ( count( $languages ) > 1 ) {
-				$html .= '<nav class="tbc-card__langs" aria-label="' . esc_attr__( 'Language', 'vizito-team-business-cards' ) . '">';
+				$html .= '<nav class="tbcards-card__langs" aria-label="' . esc_attr__( 'Language', 'vizito-team-business-cards' ) . '">';
 
 				foreach ( $languages as $code => $url ) {
 					$current = $code === $card->lang() ? ' aria-current="true"' : '';
@@ -344,7 +344,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Renderer' ) ) {
 		private function action( string $url, string $event, string $icon, string $label, bool $external = false ): string {
 			$target = $external ? ' target="_blank" rel="noopener"' : '';
 
-			return '<a class="tbc-action" href="' . esc_url( $url ) . '"' . $target . ' data-tbc-event="' . esc_attr( $event ) . '">'
+			return '<a class="tbcards-action" href="' . esc_url( $url ) . '"' . $target . ' data-tbcards-event="' . esc_attr( $event ) . '">'
 				. Icons::svg( $icon ) . '<span>' . esc_html( $label ) . '</span>' . ( $external ? self::new_tab() : '' ) . '</a>';
 		}
 
@@ -354,7 +354,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Renderer' ) ) {
 		 * @return string
 		 */
 		private static function new_tab(): string {
-			return '<span class="tbc-sr"> ' . esc_html__( '(opens in a new tab)', 'vizito-team-business-cards' ) . '</span>';
+			return '<span class="tbcards-sr"> ' . esc_html__( '(opens in a new tab)', 'vizito-team-business-cards' ) . '</span>';
 		}
 
 		/**
@@ -370,7 +370,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Renderer' ) ) {
 		private function detail( string $label, string $url, string $text, string $event, bool $external = false ): string {
 			$target = $external ? ' target="_blank" rel="noopener"' : '';
 
-			return '<div><dt>' . esc_html( $label ) . '</dt><dd><a href="' . esc_url( $url ) . '"' . $target . ' data-tbc-event="' . esc_attr( $event ) . '">' . esc_html( $text ) . ( $external ? self::new_tab() : '' ) . '</a></dd></div>';
+			return '<div><dt>' . esc_html( $label ) . '</dt><dd><a href="' . esc_url( $url ) . '"' . $target . ' data-tbcards-event="' . esc_attr( $event ) . '">' . esc_html( $text ) . ( $external ? self::new_tab() : '' ) . '</a></dd></div>';
 		}
 
 		/**

@@ -136,63 +136,63 @@ msgstr ""
 msgid "Start over"
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:92
+#: includes/admin/class-qr-admin.php:93
 msgid "QR code"
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:103 includes/admin/class-qr-admin.php:104 includes/admin/class-qr-admin.php:148
+#: includes/admin/class-qr-admin.php:104 includes/admin/class-qr-admin.php:105 includes/admin/class-qr-admin.php:149
 msgid "Print codes"
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:121
+#: includes/admin/class-qr-admin.php:122
 msgid "Publish the card to get its QR code. The code holds the card's final address."
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:131 includes/admin/class-qr-admin.php:304
+#: includes/admin/class-qr-admin.php:132 includes/admin/class-qr-admin.php:305
 msgid "logo"
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:135
+#: includes/admin/class-qr-admin.php:136
 msgid "Give the printer the SVG. Print one proof and scan it from paper before the full run."
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:145 includes/admin/class-qr-admin.php:217
+#: includes/admin/class-qr-admin.php:146 includes/admin/class-qr-admin.php:218
 msgid "Sorry, you are not allowed to export codes."
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:153
+#: includes/admin/class-qr-admin.php:154
 msgid "No published cards yet."
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:168
+#: includes/admin/class-qr-admin.php:169
 msgid "Download ZIP"
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:169
+#: includes/admin/class-qr-admin.php:170
 msgid "Open test sheet"
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:187
+#: includes/admin/class-qr-admin.php:188
 msgid "This link has expired. Reload the card and try again."
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:193
+#: includes/admin/class-qr-admin.php:194
 msgid "Nothing to download."
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:231
+#: includes/admin/class-qr-admin.php:232
 msgid "Select at least one card."
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:252
+#: includes/admin/class-qr-admin.php:253
 msgid "This server cannot build ZIP files (the PHP zip extension is missing). Download the codes one by one from each card."
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:259
+#: includes/admin/class-qr-admin.php:260
 msgid "The ZIP file could not be created in the server's temporary folder. Download the codes one by one from each card."
 msgstr ""
 
-#: includes/admin/class-qr-admin.php:308
+#: includes/admin/class-qr-admin.php:314
 msgid "QR test sheet"
 msgstr ""
 
@@ -521,7 +521,7 @@ msgstr ""
 msgid "Vizito Team Business Cards: card not found."
 msgstr ""
 
-#: includes/embed/class-embed-renderer.php:177 includes/front/class-template-loader.php:199
+#: includes/embed/class-embed-renderer.php:177 includes/front/class-template-loader.php:200
 msgid "Link copied"
 msgstr ""
 

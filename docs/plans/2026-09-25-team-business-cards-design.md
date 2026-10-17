@@ -26,7 +26,7 @@ migrates none of its data.
 | Name | Team Business Cards |
 | Slug / text domain | `team-business-cards` (free on WordPress.org, checked 2026-09-24) |
 | Namespace | `Asymetria\TeamCards` |
-| Prefix | `tbcards_` (functions, options, meta `_tbcards_*`, hooks, REST `tbcards/v1`); CSS keeps `tbc-` and `--tbc-*` |
+| Prefix | `tbcards_` (functions, options, meta `_tbcards_*`, hooks, REST `tbcards/v1`); CSS keeps `tbcards-` and `--tbcards-*` |
 | Post type | `tbcards_card` (renamed from `tbc_` before release: WordPress.org asks for 4+ character prefixes) |
 | Requirements | PHP 8.0+, WordPress 6.2+ |
 | Licence | GPL-2.0-or-later |
@@ -184,7 +184,7 @@ inline SVG — no icon fonts, no CDN.
 ### Appearance
 
 Accent colour; light, dark or automatic (system) scheme; round or square photo.
-Everything else through `--tbc-*` CSS custom properties.
+Everything else through `--tbcards-*` CSS custom properties.
 
 ### Embedding
 

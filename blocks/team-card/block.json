@@ -14,5 +14,5 @@
 		"inactive": { "type": "string", "enum": [ "hide", "notice" ], "default": "hide" }
 	},
 	"supports": { "html": false, "align": [ "wide" ] },
-	"editorScript": "tbc-block-editor"
+	"editorScript": "tbcards-block-editor"
 }

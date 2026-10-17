@@ -107,7 +107,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Svg_Writer' ) ) {
 			$at    = self::QUIET + ( $count - $pad ) / 2;
 			$inset = 1;
 
-			return '<rect class="tbc-qr-pad" x="' . $at . '" y="' . $at . '" width="' . $pad . '" height="' . $pad . '" rx="1" fill="' . $light . '"/>'
+			return '<rect class="tbcards-qr-pad" x="' . $at . '" y="' . $at . '" width="' . $pad . '" height="' . $pad . '" rx="1" fill="' . $light . '"/>'
 				. '<image href="' . $uri . '" xlink:href="' . $uri . '" x="' . ( $at + $inset ) . '" y="' . ( $at + $inset ) . '" width="' . ( $pad - 2 * $inset ) . '" height="' . ( $pad - 2 * $inset ) . '" preserveAspectRatio="xMidYMid meet"/>';
 		}
 

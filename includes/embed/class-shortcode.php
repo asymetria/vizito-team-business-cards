@@ -1,6 +1,6 @@
 <?php
 /**
- * [team_business_card] shortcode.
+ * [vizito_card] shortcode.
  *
  * @package Vizito_Team_Business_Cards
  */
@@ -14,12 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( __NAMESPACE__ . '\\Shortcode' ) ) {
 
 	/**
-	 * [team_business_card id="12"] or [team_business_card slug="jan-kowalski"], with optional
+	 * [vizito_card id="12"] or [vizito_card slug="jan-kowalski"], with optional
 	 * lang="de" and inactive="hide|notice".
 	 */
 	final class Shortcode {
 
-		public const TAG = 'team_business_card';
+		public const TAG = 'vizito_card';
 
 		/**
 		 * Shared embed path.

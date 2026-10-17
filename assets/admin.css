@@ -5,49 +5,49 @@
 	display: none;
 }
 
-.tbc-metabox .tbc-group {
+.tbcards-metabox .tbcards-group {
 	margin: 0 0 1.5em;
 	padding: 0.5em 1em 0.25em;
 	border: 1px solid #dcdcde;
 	border-radius: 4px;
 }
 
-.tbc-metabox .tbc-group legend {
+.tbcards-metabox .tbcards-group legend {
 	padding: 0 0.4em;
 	font-weight: 600;
 }
 
-.tbc-metabox .tbc-field {
+.tbcards-metabox .tbcards-field {
 	margin: 0.6em 0 1em;
 }
 
-.tbc-metabox .tbc-field label {
+.tbcards-metabox .tbcards-field label {
 	font-weight: 500;
 }
 
-.tbc-metabox input::placeholder,
-.tbc-metabox textarea::placeholder {
+.tbcards-metabox input::placeholder,
+.tbcards-metabox textarea::placeholder {
 	color: #8c8f94;
 	font-style: italic;
 }
 
-.tbc-tablist {
+.tbcards-tablist {
 	display: flex;
 	gap: 4px;
 	margin: 0.5em 0 0.75em;
 }
 
-.tbc-tablist [aria-selected="true"] {
+.tbcards-tablist [aria-selected="true"] {
 	background: #2271b1;
 	border-color: #2271b1;
 	color: #fff;
 }
 
 /* Once the tabs work, the per-panel code label is redundant. */
-.tbc-tabs-ready .tbc-panel-label {
+.tbcards-tabs-ready .tbcards-panel-label {
 	display: none;
 }
 
-.tbc-panel + .tbc-panel {
+.tbcards-panel + .tbcards-panel {
 	margin-top: 1em;
 }

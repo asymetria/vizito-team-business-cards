@@ -4,7 +4,7 @@ Tags: business card, vcard, qr code, team, digital business card
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -132,6 +132,12 @@ Users who can edit other people's posts (Editors and Administrators). Change it
 with the `tbcards_manage_capability` filter; settings use
 `tbcards_settings_capability` (default: `manage_options`).
 
+= How do I put a card on a page? =
+
+Use the "Team Card" block, the Bricks element, or the shortcode
+`[vizito_card id="12"]` (or `slug="jan-kowalski"`), with optional `lang="de"`
+and `inactive="hide"` or `inactive="notice"`.
+
 = Do I need Bricks Builder? =
 
 No. The Bricks element is offered only when Bricks is active; the shortcode
@@ -144,6 +150,10 @@ hits are capped, but no cookies are used, so one person on two devices counts
 twice.
 
 == Changelog ==
+
+= 1.0.4 =
+* Card and QR test sheet styles are loaded through the WordPress style API.
+* All handles, admin page slugs and the shortcode use the plugin's own prefix; the shortcode is now [vizito_card].
 
 = 1.0.3 =
 * Plugin Check clean-up: the bundled QR library throws a catchable exception instead of stopping the request on invalid input, the CSV reader no longer uses temporary streams, shorter readme summary.

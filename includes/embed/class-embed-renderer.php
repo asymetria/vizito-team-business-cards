@@ -30,7 +30,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Embed_Renderer' ) ) {
 	 */
 	final class Embed_Renderer {
 
-		public const HANDLE    = 'tbc-card';
+		public const HANDLE    = 'tbcards-card';
 		public const INACTIVE  = array( 'hide', 'notice' );
 		public const ATTRIBUTES = array(
 			'id'       => 0,
@@ -139,7 +139,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Embed_Renderer' ) ) {
 				}
 			);
 
-			return '<div class="tbc-embed">' . $html . '</div>';
+			return '<div class="tbcards-embed">' . $html . '</div>';
 		}
 
 		/**
@@ -158,7 +158,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Embed_Renderer' ) ) {
 			$radius = 'square' === $this->settings->get( 'photo_shape' ) ? '14px' : '50%';
 
 			wp_enqueue_style( self::HANDLE, TBCARDS_URL . 'assets/card.css', array(), TBCARDS_VERSION );
-			wp_add_inline_style( self::HANDLE, '.tbc-embed{--tbc-accent:' . ( $accent ? $accent : '#1d4ed8' ) . ';--tbc-photo-radius:' . $radius . '}' );
+			wp_add_inline_style( self::HANDLE, '.tbcards-embed{--tbcards-accent:' . ( $accent ? $accent : '#1d4ed8' ) . ';--tbcards-photo-radius:' . $radius . '}' );
 
 			wp_enqueue_script(
 				self::HANDLE,
@@ -177,7 +177,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Embed_Renderer' ) ) {
 				'copied' => __( 'Link copied', 'vizito-team-business-cards' ),
 			);
 
-			wp_add_inline_script( self::HANDLE, 'window.tbcCard = window.tbcCard || ' . wp_json_encode( $config, JSON_HEX_TAG | JSON_HEX_AMP ) . ';', 'before' );
+			wp_add_inline_script( self::HANDLE, 'window.tbcardsCard = window.tbcardsCard || ' . wp_json_encode( $config, JSON_HEX_TAG | JSON_HEX_AMP ) . ';', 'before' );
 		}
 
 		/**

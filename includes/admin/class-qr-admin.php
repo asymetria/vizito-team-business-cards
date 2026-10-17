@@ -23,7 +23,8 @@ if ( ! class_exists( __NAMESPACE__ . '\\Qr_Admin' ) ) {
 	 */
 	final class Qr_Admin {
 
-		public const PAGE_SLUG     = 'tbc-print';
+		public const PAGE_SLUG     = 'tbcards-print';
+		public const SHEET_HANDLE  = 'tbcards-qr-sheet';
 		public const EXPORT_NONCE  = 'tbcards_qr_export';
 		public const SINGLE_PREFIX = 'tbcards_qr_';
 
@@ -122,7 +123,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Qr_Admin' ) ) {
 				return;
 			}
 
-			echo '<div class="tbc-qr-preview">' . $this->output->svg( $card, false ) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- SVG built by Svg_Writer from validated values.
+			echo '<div class="tbcards-qr-preview">' . $this->output->svg( $card, false ) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- SVG built by Svg_Writer from validated values.
 			echo '<p><code>' . esc_html( $card->url() ) . '</code></p><p>';
 
 			foreach ( $this->formats() as $format ) {
@@ -305,9 +306,13 @@ if ( ! class_exists( __NAMESPACE__ . '\\Qr_Admin' ) ) {
 				}
 			}
 
+			wp_register_style( self::SHEET_HANDLE, TBCARDS_URL . 'assets/qr-sheet.css', array(), TBCARDS_VERSION );
+			ob_start();
+			wp_print_styles( array( self::SHEET_HANDLE ) );
+			$styles = (string) ob_get_clean();
+
 			return '<!doctype html><html><head><meta charset="utf-8"><title>' . esc_html__( 'QR test sheet', 'vizito-team-business-cards' ) . '</title>'
-				. '<style>@page{size:A4;margin:12mm}body{font:12px/1.4 system-ui,sans-serif;margin:0}main{display:grid;grid-template-columns:repeat(3,1fr);gap:8mm}'
-				. 'figure{margin:0;break-inside:avoid;text-align:center}figure svg{width:45mm;height:45mm}figcaption{margin-top:2mm;overflow-wrap:anywhere}</style>'
+				. $styles
 				. '</head><body><main>' . $cells . '</main></body></html>';
 		}
 

@@ -35,13 +35,6 @@ if ( ! class_exists( __NAMESPACE__ . '\\Template_Loader' ) ) {
 		private static ?array $view = null;
 
 		/**
-		 * The stylesheet, read once per request.
-		 *
-		 * @var string|null
-		 */
-		private static ?string $css = null;
-
-		/**
 		 * Plugin settings.
 		 *
 		 * @var Settings
@@ -130,9 +123,17 @@ if ( ! class_exists( __NAMESPACE__ . '\\Template_Loader' ) ) {
 
 			self::$view = $this->build_view( $card );
 
-			// Registered here and printed by the template with wp_print_scripts(),
-			// the only way to output a script that WordPress and Plugin Check accept
-			// on a page that deliberately skips wp_head() and wp_footer().
+			// Registered here and printed by the template with wp_print_styles()
+			// and wp_print_scripts(): the page deliberately skips wp_head() and
+			// wp_footer(), so nothing from the theme or other plugins reaches it.
+			wp_register_style(
+				\Asymetria\TeamCards\Embed\Embed_Renderer::HANDLE,
+				TBCARDS_URL . 'assets/card.css',
+				array(),
+				TBCARDS_VERSION
+			);
+			wp_add_inline_style( \Asymetria\TeamCards\Embed\Embed_Renderer::HANDLE, self::$view['vars'] );
+
 			wp_register_script(
 				\Asymetria\TeamCards\Embed\Embed_Renderer::HANDLE,
 				TBCARDS_URL . 'assets/card.js',
@@ -142,7 +143,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Template_Loader' ) ) {
 			);
 			wp_add_inline_script(
 				\Asymetria\TeamCards\Embed\Embed_Renderer::HANDLE,
-				'window.tbcCard = ' . wp_json_encode( self::$view['config'], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE ) . ';',
+				'window.tbcardsCard = ' . wp_json_encode( self::$view['config'], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE ) . ';',
 				'before'
 			);
 
@@ -209,7 +210,6 @@ if ( ! class_exists( __NAMESPACE__ . '\\Template_Loader' ) ) {
 				'lang'       => $lang,
 				'title'      => implode( ' — ', array_filter( array( $title, $company ) ) ),
 				'html'       => $labels['html'],
-				'css'        => self::stylesheet(),
 				'vars'       => $this->css_vars(),
 				'scheme'     => (string) $this->settings->get( 'scheme' ),
 				'accent'     => (string) $this->settings->get( 'accent' ),
@@ -234,21 +234,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Template_Loader' ) ) {
 			$accent = sanitize_hex_color( (string) $this->settings->get( 'accent' ) );
 			$radius = 'square' === $this->settings->get( 'photo_shape' ) ? '14px' : '50%';
 
-			return ':root{--tbc-accent:' . ( $accent ? $accent : '#1d4ed8' ) . ';--tbc-photo-radius:' . $radius . '}';
-		}
-
-		/**
-		 * The card stylesheet, inlined into the page.
-		 *
-		 * @return string
-		 */
-		private static function stylesheet(): string {
-			if ( null === self::$css ) {
-				$file      = TBCARDS_DIR . 'assets/card.css';
-				self::$css = is_readable( $file ) ? (string) file_get_contents( $file ) : ''; // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- local plugin file.
-			}
-
-			return self::$css;
+			return ':root{--tbcards-accent:' . ( $accent ? $accent : '#1d4ed8' ) . ';--tbcards-photo-radius:' . $radius . '}';
 		}
 	}
 }

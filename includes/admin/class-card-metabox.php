@@ -28,7 +28,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Metabox' ) ) {
 
 		public const NONCE_NAME   = 'tbcards_card_nonce';
 		public const NONCE_PREFIX = 'tbcards_save_card_';
-		public const INPUT        = 'tbc';
+		public const INPUT        = 'tbcards';
 
 		/**
 		 * Plugin settings.
@@ -122,8 +122,8 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Metabox' ) ) {
 				return;
 			}
 
-			wp_enqueue_style( 'tbc-admin', TBCARDS_URL . 'assets/admin.css', array(), TBCARDS_VERSION );
-			wp_enqueue_script( 'tbc-admin', TBCARDS_URL . 'assets/admin.js', array(), TBCARDS_VERSION, true );
+			wp_enqueue_style( 'tbcards-admin', TBCARDS_URL . 'assets/admin.css', array(), TBCARDS_VERSION );
+			wp_enqueue_script( 'tbcards-admin', TBCARDS_URL . 'assets/admin.js', array(), TBCARDS_VERSION, true );
 		}
 
 		/**
@@ -147,7 +147,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Metabox' ) ) {
 
 			wp_nonce_field( self::NONCE_PREFIX . $post_id, self::NONCE_NAME );
 
-			echo '<div class="tbc-metabox">';
+			echo '<div class="tbcards-metabox">';
 			echo '<p class="description">' . esc_html__( 'Fields left empty use the company profile where a grey hint is shown.', 'vizito-team-business-cards' ) . '</p>';
 
 			foreach ( $groups as $group => $legend ) {
@@ -162,13 +162,13 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Metabox' ) ) {
 					continue;
 				}
 
-				echo '<fieldset class="tbc-group"><legend>' . esc_html( $legend ) . '</legend>';
+				echo '<fieldset class="tbcards-group"><legend>' . esc_html( $legend ) . '</legend>';
 
 				foreach ( $fields as $key => $def ) {
 					$value = is_scalar( $raw[ $key ] ) ? (string) $raw[ $key ] : '';
 					$hint  = $def['inherits'] ? $this->company->value( $key, $default ) : '';
 
-					$this->row( $def, 'tbc-' . $key, self::INPUT . '[' . $key . ']', $value, $hint );
+					$this->row( $def, 'tbcards-' . $key, self::INPUT . '[' . $key . ']', $value, $hint );
 				}
 
 				echo '</fieldset>';
@@ -271,18 +271,18 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Metabox' ) ) {
 				}
 			);
 
-			echo '<fieldset class="tbc-group tbc-langs" data-tbc-tabs><legend>' . esc_html__( 'Role and texts, per language', 'vizito-team-business-cards' ) . '</legend>';
-			echo '<div class="tbc-tablist" role="tablist" hidden>';
+			echo '<fieldset class="tbcards-group tbcards-langs" data-tbcards-tabs><legend>' . esc_html__( 'Role and texts, per language', 'vizito-team-business-cards' ) . '</legend>';
+			echo '<div class="tbcards-tablist" role="tablist" hidden>';
 
 			foreach ( $codes as $i => $code ) {
-				echo '<button type="button" class="button" role="tab" id="tbc-tab-' . esc_attr( $code ) . '" aria-controls="tbc-panel-' . esc_attr( $code ) . '" aria-selected="' . ( 0 === $i ? 'true' : 'false' ) . '">' . esc_html( strtoupper( $code ) ) . '</button>';
+				echo '<button type="button" class="button" role="tab" id="tbcards-tab-' . esc_attr( $code ) . '" aria-controls="tbcards-panel-' . esc_attr( $code ) . '" aria-selected="' . ( 0 === $i ? 'true' : 'false' ) . '">' . esc_html( strtoupper( $code ) ) . '</button>';
 			}
 
 			echo '</div>';
 
 			foreach ( $codes as $code ) {
-				echo '<div class="tbc-panel" role="tabpanel" id="tbc-panel-' . esc_attr( $code ) . '" aria-labelledby="tbc-tab-' . esc_attr( $code ) . '" lang="' . esc_attr( $code ) . '">';
-				echo '<p class="tbc-panel-label"><code>' . esc_html( $code ) . '</code></p>';
+				echo '<div class="tbcards-panel" role="tabpanel" id="tbcards-panel-' . esc_attr( $code ) . '" aria-labelledby="tbcards-tab-' . esc_attr( $code ) . '" lang="' . esc_attr( $code ) . '">';
+				echo '<p class="tbcards-panel-label"><code>' . esc_html( $code ) . '</code></p>';
 
 				foreach ( $fields as $key => $def ) {
 					$stored = is_array( $raw[ $key ] ) ? (string) ( $raw[ $key ][ $code ] ?? '' ) : '';
@@ -292,7 +292,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Metabox' ) ) {
 						$hint = (string) ( $raw[ $key ][ $default ] ?? '' );
 					}
 
-					$this->row( $def, 'tbc-' . $key . '-' . $code, self::INPUT . '[' . $key . '][' . $code . ']', $stored, $hint );
+					$this->row( $def, 'tbcards-' . $key . '-' . $code, self::INPUT . '[' . $key . '][' . $code . ']', $stored, $hint );
 				}
 
 				echo '</div>';
@@ -314,7 +314,7 @@ if ( ! class_exists( __NAMESPACE__ . '\\Card_Metabox' ) ) {
 		private function row( array $def, string $id, string $name, string $value, string $hint ): void {
 			$placeholder = '' !== $hint ? ' placeholder="' . esc_attr( $hint ) . '"' : '';
 
-			echo '<p class="tbc-field"><label for="' . esc_attr( $id ) . '">' . esc_html( $def['label'] ) . '</label><br>';
+			echo '<p class="tbcards-field"><label for="' . esc_attr( $id ) . '">' . esc_html( $def['label'] ) . '</label><br>';
 
 			if ( 'textarea' === $def['type'] ) {
 				echo '<textarea class="large-text" rows="3" id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '"' . $placeholder . '>' . esc_textarea( $value ) . '</textarea>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $placeholder is escaped above.

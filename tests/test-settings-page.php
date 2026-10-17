@@ -67,10 +67,10 @@ describe(
 
 				$pages = array_column( $GLOBALS['tbcards_stub']['admin_pages'], null, 'menu_slug' );
 
-				assert_same( 'edit.php?post_type=tbcards_card', $pages['tbc-company']['parent_slug'] );
-				assert_same( 'manage_options', $pages['tbc-company']['capability'] );
-				assert_same( 'edit.php?post_type=tbcards_card', $pages['tbc-settings']['parent_slug'] );
-				assert_same( 'manage_options', $pages['tbc-settings']['capability'] );
+				assert_same( 'edit.php?post_type=tbcards_card', $pages['tbcards-company']['parent_slug'] );
+				assert_same( 'manage_options', $pages['tbcards-company']['capability'] );
+				assert_same( 'edit.php?post_type=tbcards_card', $pages['tbcards-settings']['parent_slug'] );
+				assert_same( 'manage_options', $pages['tbcards-settings']['capability'] );
 			}
 		);
 

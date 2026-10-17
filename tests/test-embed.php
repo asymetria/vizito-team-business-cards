@@ -60,8 +60,8 @@ describe(
 			function () {
 				$html = Plugin::instance()->embed()->render( array( 'id' => 5 ) );
 
-				assert_contains( '<div class="tbc-embed"><article class="tbc-card tbc-card--embed"', $html );
-				assert_contains( '<h2 class="tbc-card__name">Jan</h2>', $html );
+				assert_contains( '<div class="tbcards-embed"><article class="tbcards-card tbcards-card--embed"', $html );
+				assert_contains( '<h2 class="tbcards-card__name">Jan</h2>', $html );
 				assert_contains( 'card/jan/vcard/', $html );
 				assert_false( str_contains( $html, 'hreflang' ) );
 			}
@@ -74,12 +74,12 @@ describe(
 				$embed->render( array( 'id' => 5 ) );
 				$embed->render( array( 'id' => 5 ) );
 
-				assert_same( array( 'tbc-card' ), $GLOBALS['tbcards_stub']['style_queue'] );
-				assert_same( array( 'tbc-card' ), $GLOBALS['tbcards_stub']['script_queue'] );
-				assert_same( 1, count( $GLOBALS['tbcards_stub']['styles']['tbc-card']['inline'] ) );
-				assert_same( 1, count( $GLOBALS['tbcards_stub']['scripts']['tbc-card']['extra']['before'] ) );
-				assert_contains( '"auto":false', $GLOBALS['tbcards_stub']['scripts']['tbc-card']['extra']['before'][0] );
-				assert_false( str_contains( $GLOBALS['tbcards_stub']['scripts']['tbc-card']['extra']['before'][0], '"card"' ) );
+				assert_same( array( 'tbcards-card' ), $GLOBALS['tbcards_stub']['style_queue'] );
+				assert_same( array( 'tbcards-card' ), $GLOBALS['tbcards_stub']['script_queue'] );
+				assert_same( 1, count( $GLOBALS['tbcards_stub']['styles']['tbcards-card']['inline'] ) );
+				assert_same( 1, count( $GLOBALS['tbcards_stub']['scripts']['tbcards-card']['extra']['before'] ) );
+				assert_contains( '"auto":false', $GLOBALS['tbcards_stub']['scripts']['tbcards-card']['extra']['before'][0] );
+				assert_false( str_contains( $GLOBALS['tbcards_stub']['scripts']['tbcards-card']['extra']['before'][0], '"card"' ) );
 			}
 		);
 
@@ -138,7 +138,7 @@ describe(
 				( new Shortcode( Plugin::instance()->embed() ) )->hooks();
 				do_action( 'init' );
 
-				assert_true( isset( $GLOBALS['tbcards_stub']['shortcodes']['team_business_card'] ) );
+				assert_true( isset( $GLOBALS['tbcards_stub']['shortcodes']['vizito_card'] ) );
 			}
 		);
 
@@ -218,7 +218,7 @@ describe(
 				$element->render();
 				$html = (string) ob_get_clean();
 
-				assert_false( str_contains( $html, 'tbc-embed' ) );
+				assert_false( str_contains( $html, 'tbcards-embed' ) );
 			}
 		);
 	}

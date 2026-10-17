@@ -35,13 +35,13 @@
 	}
 
 	/**
-	 * Turns every [data-tbc-tabs] block into tabs. Without this, every
+	 * Turns every [data-tbcards-tabs] block into tabs. Without this, every
 	 * language panel stays visible with its own code label.
 	 *
 	 * @param {Document} doc Document.
 	 */
 	function initTabs( doc ) {
-		doc.querySelectorAll( '[data-tbc-tabs]' ).forEach( function ( block ) {
+		doc.querySelectorAll( '[data-tbcards-tabs]' ).forEach( function ( block ) {
 			var list   = block.querySelector( '[role="tablist"]' );
 			var tabs   = Array.prototype.slice.call( block.querySelectorAll( '[role="tab"]' ) );
 			var panels = tabs.map( function ( tab ) {
@@ -70,7 +70,7 @@
 			}
 
 			list.hidden = false;
-			block.classList.add( 'tbc-tabs-ready' );
+			block.classList.add( 'tbcards-tabs-ready' );
 
 			tabs.forEach( function ( tab, i ) {
 				tab.addEventListener( 'click', function () {
@@ -102,8 +102,8 @@
 			return;
 		}
 
-		doc.querySelectorAll( '[data-tbc-media]' ).forEach( function ( button ) {
-			var input = doc.getElementById( button.getAttribute( 'data-tbc-media' ) );
+		doc.querySelectorAll( '[data-tbcards-media]' ).forEach( function ( button ) {
+			var input = doc.getElementById( button.getAttribute( 'data-tbcards-media' ) );
 			var frame = null;
 
 			if ( ! input ) {

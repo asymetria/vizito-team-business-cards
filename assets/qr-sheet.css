@@ -1,0 +1,7 @@
+/* Vizito Team Business Cards — printable QR test sheet. */
+@page { size: A4; margin: 12mm; }
+body { font: 12px/1.4 system-ui, sans-serif; margin: 0; }
+main { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8mm; }
+figure { margin: 0; break-inside: avoid; text-align: center; }
+figure svg { width: 45mm; height: 45mm; }
+figcaption { margin-top: 2mm; overflow-wrap: anywhere; }

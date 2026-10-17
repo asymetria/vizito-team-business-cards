@@ -436,6 +436,30 @@ if ( ! function_exists( 'wp_print_scripts' ) ) {
 	}
 }
 
+if ( ! function_exists( 'wp_print_styles' ) ) {
+	/**
+	 * Prints registered styles the way core does for these tests: the link
+	 * with ?ver=, then the inline data in its own style tag.
+	 */
+	function wp_print_styles( $handles = false ) {
+		foreach ( (array) $handles as $handle ) {
+			$style = $GLOBALS['tbcards_stub']['styles'][ $handle ] ?? null;
+
+			if ( null === $style ) {
+				continue;
+			}
+
+			echo '<link rel="stylesheet" id="' . esc_attr( $handle ) . '-css" href="' . esc_url( $style['src'] . '?ver=' . $style['ver'] ) . '" media="all">' . "\n";
+
+			if ( ! empty( $style['inline'] ) ) {
+				echo '<style id="' . esc_attr( $handle ) . '-inline-css">' . implode( "\n", $style['inline'] ) . "</style>\n";
+			}
+		}
+
+		return array();
+	}
+}
+
 if ( ! function_exists( 'load_textdomain' ) ) {
 	function load_textdomain( $domain, $mofile, $locale = null ) {
 		$GLOBALS['tbcards_stub']['textdomain_log'][] = 'load:' . $domain . ':' . basename( (string) $mofile );

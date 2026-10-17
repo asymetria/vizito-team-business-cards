@@ -86,8 +86,8 @@ describe(
 		it(
 			'puts the name in h1 on the page and h2 in an embed',
 			function () {
-				assert_contains( '<h1 class="tbc-card__name">Jan Kowalski</h1>', tbcards_test_render( tbcards_test_card() ) );
-				assert_contains( '<h2 class="tbc-card__name">Jan Kowalski</h2>', tbcards_test_render( tbcards_test_card(), array( 'context' => 'embed' ) ) );
+				assert_contains( '<h1 class="tbcards-card__name">Jan Kowalski</h1>', tbcards_test_render( tbcards_test_card() ) );
+				assert_contains( '<h2 class="tbcards-card__name">Jan Kowalski</h2>', tbcards_test_render( tbcards_test_card(), array( 'context' => 'embed' ) ) );
 			}
 		);
 
@@ -134,7 +134,7 @@ describe(
 				);
 
 				foreach ( array( 'call', 'email', 'whatsapp', 'vcard' ) as $event ) {
-					assert_false( str_contains( $html, 'data-tbc-event="' . $event . '"' ), $event );
+					assert_false( str_contains( $html, 'data-tbcards-event="' . $event . '"' ), $event );
 				}
 			}
 		);
@@ -142,7 +142,7 @@ describe(
 		it(
 			'links Save contact to the vCard with a download attribute',
 			function () {
-				assert_contains( 'href="https://example.test/card/jan-kowalski/vcard/" download data-tbc-event="vcard"', tbcards_test_render( tbcards_test_card() ) );
+				assert_contains( 'href="https://example.test/card/jan-kowalski/vcard/" download data-tbcards-event="vcard"', tbcards_test_render( tbcards_test_card() ) );
 			}
 		);
 
@@ -235,7 +235,7 @@ describe(
 					)
 				);
 
-				preg_match_all( '/data-tbc-event="([^"]+)"/', $html, $found );
+				preg_match_all( '/data-tbcards-event="([^"]+)"/', $html, $found );
 
 				foreach ( $found[1] as $event ) {
 					assert_true( in_array( $event, Card_Renderer::EVENTS, true ), $event );
@@ -257,7 +257,7 @@ describe(
 				$html = tbcards_test_render( tbcards_test_card() );
 
 				assert_contains( 'src="https://example.test/logo.png" alt="Acme"', $html );
-				assert_contains( 'class="tbc-card__company">Acme<', $html );
+				assert_contains( 'class="tbcards-card__company">Acme<', $html );
 			}
 		);
 	}

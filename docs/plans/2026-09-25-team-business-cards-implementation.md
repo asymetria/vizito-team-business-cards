@@ -61,7 +61,7 @@ Rules:
 - **Guards:** every class file starts with `if ( ! defined( 'ABSPATH' ) ) { exit; }` and wraps its
   declaration in `if ( ! class_exists( ... ) )`, like the author's earlier plugins (see the header
   comment of `team-business-cards.php` for why).
-- **Prefixes:** functions/options/hooks `tbc_`, meta `_tbc_`, CSS classes `tbc-`, custom properties `--tbc-`.
+- **Prefixes:** functions/options/hooks `tbc_`, meta `_tbc_`, CSS classes `tbcards-`, custom properties `--tbcards-`.
 - **Text domain** `team-business-cards` on every user-facing string.
 - **Commits:** author is already configured locally (`Asymetria`). Never add a `Co-Authored-By` line.
   Commit messages in English, imperative.
@@ -2581,7 +2581,7 @@ Decisions:
 Test cases (write them first, full code in the same style as Task 7):
 1. `hooks()` adds `admin_menu` and `admin_init`.
 2. `register_menu()` adds the top-level page with `edit_posts` and submenus with the expected slugs
-   and capabilities (`tbc-company` → `manage_options`, `tbc-settings` → `manage_options`).
+   and capabilities (`tbcards-company` → `manage_options`, `tbcards-settings` → `manage_options`).
    Add an `add_menu_page` stub to `stubs-extra.php` recording into a new `menu_pages` key.
 3. `register_settings()` registers both option names with the right sanitize callbacks
    (assert the callback arrays point at the two objects' `sanitize` methods).
@@ -2619,9 +2619,9 @@ Decisions:
   translated inherited fields (intro) the placeholder is per language.
 - Save (`save_post_tbc_card`): return early on autosave, on revisions, without a valid nonce
   (`tbc_card_nonce`, action `tbc_save_card_{post_id}`), or without `current_user_can( 'edit_post', $id )`.
-  Read `wp_unslash( $_POST['tbc'] )`, sanitise every field with `Field_Sanitizer` (translated ones
+  Read `wp_unslash( $_POST['tbcards'] )`, sanitise every field with `Field_Sanitizer` (translated ones
   with the configured codes), pass to `Card_Repository::save()`, then `do_action( 'tbc_card_saved', $id )`.
-- Missing keys in `$_POST['tbc']` mean "not on the form" → not touched (repository contract).
+- Missing keys in `$_POST['tbcards']` mean "not on the form" → not touched (repository contract).
   Every field is always on the form, so in practice an emptied input arrives as `""` and deletes.
 
 Test cases:
@@ -2686,19 +2686,19 @@ when the callback throws; does not switch when the locale is empty or already cu
 
 Decisions:
 - `Icons::svg( string $name ): string` returns one inline `<svg aria-hidden="true" focusable="false"
-  viewBox="0 0 24 24" class="tbc-icon">` with a single `<path>`. Names: `phone`, `mobile`, `mail`,
+  viewBox="0 0 24 24" class="tbcards-icon">` with a single `<path>`. Names: `phone`, `mobile`, `mail`,
   `whatsapp`, `pin`, `globe`, `share`, `download`, `link`, plus the eight networks. Draw simple
   original paths; do **not** copy icon sets (licence). Unknown name → `link`.
 - `Card_Renderer::render( Card $card, array $args = array() ): string` with
   `$args = array( 'context' => 'page'|'embed', 'languages' => string[], 'vcard_url' => string )`.
-  Output, top to bottom (§6): root `<article class="tbc-card" data-tbc-card="{id}" lang="{lang}">`;
+  Output, top to bottom (§6): root `<article class="tbcards-card" data-tbcards-card="{id}" lang="{lang}">`;
   logo (company, from `Company_Profile::logo_id()` → `wp_get_attachment_image_url( id, 'medium' )`);
   photo (`wp_get_attachment_image_url( photo_id, 'medium' )`, `alt` = full name) or initials
   in a circle when there is none; `<h1>` (page) / `<h2>` (embed) name; job title; intro (`nl2br`
   of escaped text); primary actions; details list (`<dl>`); address block with "Directions";
   social icon links; custom buttons (only when both label and URL are set); footer with Share and,
   on the page only, the language switcher.
-- Primary actions and their `data-tbc-event`: Save contact (`vcard`, `href` = vcard URL, `download`
+- Primary actions and their `data-tbcards-event`: Save contact (`vcard`, `href` = vcard URL, `download`
   attribute), Call (`call`, `tel:` + `Field_Sanitizer::dial( mobile )`), Email (`email`, `mailto:`),
   WhatsApp (`whatsapp`, `https://wa.me/` + digits of `dial()` without `+`). An action whose value is
   empty is omitted, never rendered disabled.
@@ -2707,8 +2707,8 @@ Decisions:
   It is only a link the visitor chooses to open; the plugin itself contacts no service.
 - External links get `rel="noopener"` and `target="_blank"`; social links also
   `aria-label="{Network}: {full name}"`.
-- Share: `<button type="button" class="tbc-share" data-tbc-event="share" data-tbc-url="{url}">`
-  plus an empty `<p class="tbc-status" role="status" aria-live="polite">` for "Link copied".
+- Share: `<button type="button" class="tbcards-share" data-tbcards-event="share" data-tbcards-url="{url}">`
+  plus an empty `<p class="tbcards-status" role="status" aria-live="polite">` for "Link copied".
 - Everything is escaped at the point of output (`esc_html`, `esc_attr`, `esc_url`).
 - Labels come from `__()`; callers wrap `render()` in `Language::with_locale()`.
 
@@ -2724,7 +2724,7 @@ Test cases (build a `Card` directly — no repository needed):
 9. Initials fallback "JK" when there is no photo; `<img alt="Jan Kowalski">` when there is.
 10. Language switcher: page context with two languages renders two links with `?lang=`, the
     current one with `aria-current="true"`; one language or embed context renders none.
-11. Every `data-tbc-event` value is one of the §9 event names.
+11. Every `data-tbcards-event` value is one of the §9 event names.
 12. Icons: every declared name returns an `<svg` with `aria-hidden="true"`; unknown → the link icon.
 
 **Commit:** `git commit -m "Add card renderer and inline icons"`.
@@ -2746,7 +2746,7 @@ Decisions:
   Before returning, build the view model into a property the template reads through
   `Template_Loader::view()`: `card`, `html` (renderer output inside `with_locale`), `lang`,
   `title` ("Full name — Company"), `css` (contents of `assets/card.css`, read once),
-  `vars` (the `--tbc-*` declarations from settings), `scheme`, `script_url`
+  `vars` (the `--tbcards-*` declarations from settings), `scheme`, `script_url`
   (`TBC_URL . 'assets/card.js?ver=' . TBC_VERSION`), `config` (JSON for the script: languages,
   default, auto switch on/off; stats endpoint arrives in Task 20).
 - `templates/card.php` prints a complete document: `<!doctype html>`, `<html lang>`, charset,
@@ -2756,7 +2756,7 @@ Decisions:
   no `wp_footer()`: nothing from the theme or other plugins reaches the card. Document this
   in the template header, including that a theme override may call them if it wants to.
 - Scheme: `auto` → `color-scheme: light dark` with a `prefers-color-scheme: dark` block;
-  `light`/`dark` force one. Photo shape → `--tbc-photo-radius: 50%` or `12px`.
+  `light`/`dark` force one. Photo shape → `--tbcards-photo-radius: 50%` or `12px`.
 - `card.css` target: under 6 KB unminified, mobile first, max-width 480px card centred,
   `:focus-visible` outlines, reduced-motion respected, no web fonts (system stack).
 - `card.js` (no dependencies, ES2017, wrapped IIFE; pure functions also exported through
@@ -2768,7 +2768,7 @@ Decisions:
     replaced URL has a `lang` parameter.
   - Share: `navigator.share( { title, url } )` when available (ignore `AbortError`), otherwise
     `navigator.clipboard.writeText( url )`, then write the translated "Link copied" (from config)
-    into `.tbc-status`.
+    into `.tbcards-status`.
 
 Test cases, PHP: template chosen only for singular cards; theme override wins; vCard requests are
 left alone; the view model's title, lang and escaped HTML; `vars` reflect settings (accent,
@@ -2918,7 +2918,7 @@ visible immediately with LiteSpeed active.
   preview fetcher must not count as a view), more than 30 hits per minute per salted IP hash
   (transient, 60 s). Always answers 204 so abusers learn nothing.
 - `card.js`: `view` on load (source `qr` when the URL has `src=qr`, then `history.replaceState`
-  removes `src` so a shared link does not count as QR), clicks on `[data-tbc-event]` via one
+  removes `src` so a shared link does not count as QR), clicks on `[data-tbcards-event]` via one
   delegated listener, `navigator.sendBeacon` with a `Blob` of JSON; no-op when `sendBeacon` is missing.
 - Tests: each rejection path; hash never stored beyond the transient; JS: view source detection,
   replaceState, delegated clicks, no beacon when unsupported.
@@ -2988,7 +2988,7 @@ visible immediately with LiteSpeed active.
 
 - `[team_card id="12"]` or `[team_card slug="jan-kowalski"]`, optional `lang`. Renders through
   `Card_Renderer` with `context => embed` inside `with_locale`; enqueues `card.css` as a real stylesheet
-  (handle `tbc-card`) once, `card.js` deferred. Inactive → notice view or nothing (attribute
+  (handle `tbcards-card`) once, `card.js` deferred. Inactive → notice view or nothing (attribute
   `inactive="notice|hide"`, default `hide`). Unknown card → HTML comment for editors only.
 
 ### Task 27: Block

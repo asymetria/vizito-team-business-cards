@@ -97,9 +97,9 @@ Setup: install `vizito-team-business-cards-0.1.0-dev.zip`, activate.
 
 ## Stage 5 — embeds (build 0.5.0-dev)
 
-- [ ] `[team_business_card slug="jan"]` in a page: card renders in the theme's content width,
+- [ ] `[vizito_card slug="jan"]` in a page: card renders in the theme's content width,
       theme fonts do not break it; two shortcodes on one page load card.css/card.js once.
-- [ ] `[team_business_card id="…" lang="de"]` → German title; on a Polylang/WPML page without `lang`
+- [ ] `[vizito_card id="…" lang="de"]` → German title; on a Polylang/WPML page without `lang`
       the card follows the page language.
 - [ ] Inactive card: nothing by default; `inactive="notice"` shows company details.
 - [ ] Block editor: "Team Card" block, pick a card from the list, preview renders; saving

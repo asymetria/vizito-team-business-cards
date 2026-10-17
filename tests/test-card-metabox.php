@@ -83,7 +83,7 @@ $tbcards_metabox_fixture = function () {
 		'post_type' => 'tbcards_card',
 		'post_name' => 'jan',
 	);
-	unset( $_POST['tbc'], $_POST['tbcards_card_nonce'] );
+	unset( $_POST['tbcards'], $_POST['tbcards_card_nonce'] );
 };
 
 describe(
@@ -109,7 +109,7 @@ describe(
 			function () {
 				$html = tbcards_test_metabox_html();
 
-				assert_contains( 'name="tbc[first_name]"', $html );
+				assert_contains( 'name="tbcards[first_name]"', $html );
 				assert_contains( 'value="Jan &quot;Szef&quot;"', $html );
 			}
 		);
@@ -119,9 +119,9 @@ describe(
 			function () {
 				$html = tbcards_test_metabox_html();
 
-				assert_contains( 'name="tbc[job_title][pl]" value="Prezes"', $html );
-				assert_contains( 'name="tbc[job_title][de]" value=""', $html );
-				assert_contains( 'name="tbc[intro][de]"', $html );
+				assert_contains( 'name="tbcards[job_title][pl]" value="Prezes"', $html );
+				assert_contains( 'name="tbcards[job_title][de]" value=""', $html );
+				assert_contains( 'name="tbcards[intro][de]"', $html );
 			}
 		);
 
@@ -130,9 +130,9 @@ describe(
 			function () {
 				$html = tbcards_test_metabox_html();
 
-				assert_contains( 'name="tbc[city]" value="" placeholder="Warszawa"', $html );
+				assert_contains( 'name="tbcards[city]" value="" placeholder="Warszawa"', $html );
 				assert_contains( 'placeholder="Intro firmy"', $html );
-				assert_false( str_contains( $html, 'name="tbc[email]" value="" placeholder' ) );
+				assert_false( str_contains( $html, 'name="tbcards[email]" value="" placeholder' ) );
 			}
 		);
 
@@ -141,8 +141,8 @@ describe(
 			function () {
 				$html = tbcards_test_metabox_html();
 
-				assert_contains( 'id="tbc-panel-pl"', $html );
-				assert_contains( 'id="tbc-panel-de"', $html );
+				assert_contains( 'id="tbcards-panel-pl"', $html );
+				assert_contains( 'id="tbcards-panel-de"', $html );
 				assert_false( (bool) preg_match( '/role="tabpanel"[^>]*hidden/', $html ) );
 			}
 		);
@@ -165,7 +165,7 @@ describe(
 				$tbcards_metabox_fixture();
 				$GLOBALS['tbcards_stub']['capabilities']['edit_post'] = array( 5 );
 				$_POST['tbcards_card_nonce']                          = 'nonce:tbcards_save_card_5';
-				$_POST['tbc']                                     = array(
+				$_POST['tbcards']                                     = array(
 					'first_name' => 'Anna',
 					'website'    => 'javascript:alert(1)',
 					'job_title'  => array(
@@ -227,7 +227,7 @@ describe(
 		it(
 			'unslashes the request before sanitising',
 			function () {
-				$_POST['tbc'] = array( 'last_name' => "O\\'Brien" );
+				$_POST['tbcards'] = array( 'last_name' => "O\\'Brien" );
 
 				tbcards_test_metabox()->save( 5 );
 
@@ -245,7 +245,7 @@ describe(
 			function () use ( $tbcards_metabox_fixture ) {
 				$tbcards_metabox_fixture();
 				$_POST['tbcards_card_nonce'] = 'nonce:tbcards_save_card_5';
-				$_POST['tbc']            = array(
+				$_POST['tbcards']            = array(
 					'first_name' => 'Anna',
 					'last_name'  => 'Nowak',
 				);
@@ -280,7 +280,7 @@ describe(
 				);
 				assert_same( 'X', $other['post_title'] );
 
-				$_POST['tbc']  = array(
+				$_POST['tbcards']  = array(
 					'first_name' => '',
 					'last_name'  => ' ',
 				);
@@ -294,7 +294,7 @@ describe(
 				assert_same( 'Old', $empty['post_title'] );
 
 				unset( $_POST['tbcards_card_nonce'] );
-				$_POST['tbc'] = array( 'first_name' => 'Anna' );
+				$_POST['tbcards'] = array( 'first_name' => 'Anna' );
 				$unsigned     = $metabox->derive_title(
 					array(
 						'post_type'  => 'tbcards_card',

@@ -151,8 +151,8 @@ describe(
 				tbcards_test_loader()->template( '' );
 				$vars = Template_Loader::view()['vars'];
 
-				assert_contains( '--tbc-accent:#aa0000', $vars );
-				assert_contains( '--tbc-photo-radius:14px', $vars );
+				assert_contains( '--tbcards-accent:#aa0000', $vars );
+				assert_contains( '--tbcards-photo-radius:14px', $vars );
 			}
 		);
 
@@ -185,9 +185,11 @@ describe(
 				assert_contains( '<html lang="de"', $html );
 				assert_contains( '<meta name="robots" content="noindex, noarchive">', $html );
 				assert_contains( '<title>Jan Kowalski — Acme</title>', $html );
-				assert_contains( '--tbc-accent:#aa0000', $html );
-				assert_contains( 'class="tbc-card tbc-card--page"', $html );
+				assert_contains( '--tbcards-accent:#aa0000', $html );
+				assert_contains( 'class="tbcards-card tbcards-card--page"', $html );
 				assert_contains( 'assets/card.js?ver=', $html );
+				assert_contains( 'assets/card.css?ver=', $html );
+				assert_false( str_contains( $html, '<style>' ) ); // Only through wp_print_styles(), never a bare tag.
 				assert_false( str_contains( $html, 'wp_head' ) );
 			}
 		);
